@@ -34,9 +34,9 @@ PageModeEtPompe::~PageModeEtPompe()
 
 void PageModeEtPompe::on_pushButton_3_clicked()
 {
-    PageAccueil *pageAccueil = new PageAccueil(this);
-    pageAccueil->setWindowState(Qt::WindowFullScreen);
-    pageAccueil->show();
+    PagePressee *pagePressee = new PagePressee(this);
+    pagePressee->setWindowState(Qt::WindowFullScreen);
+    pagePressee->show();
 
     this->hide();
     return;

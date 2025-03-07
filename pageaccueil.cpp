@@ -13,7 +13,7 @@ PageAccueil::~PageAccueil() {
 }
 
 void PageAccueil::ouvrirPageSecondaire() {
-    pageModeEtPompe = new PageModeEtPompe(this);
-    pageModeEtPompe->show();
+    pagePressee = new PagePressee(this);
+    pagePressee->show();
     this->hide();
 }

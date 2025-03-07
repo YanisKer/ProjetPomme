@@ -1,6 +1,7 @@
 #ifndef PAGEPRESSEE_H
 #define PAGEPRESSEE_H
 
+#include "pagemodeetpompe.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -14,6 +15,9 @@ class PagePressee : public QMainWindow
 public:
     explicit PagePressee(QWidget *parent = nullptr);
     ~PagePressee();
+
+private slots:
+    void on_pushButton_2_clicked();
 
 private:
     Ui::PagePressee *ui;

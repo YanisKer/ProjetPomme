@@ -856,8 +856,8 @@ moc_pageaccueil.cpp: pageaccueil.h \
 		../rpi/qt5.15/include/QtGui/qtouchdevice.h \
 		../rpi/qt5.15/include/QtWidgets/qtabwidget.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
-		pagemodeetpompe.h \
 		pagepressee.h \
+		pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
 		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
 		moc_predefs.h \
@@ -1189,7 +1189,6 @@ moc_pageetalonnage.cpp: pageetalonnage.h \
 	/home/ciel_user/rpi/qt5.15/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/moc_predefs.h -I/home/ciel_user/rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/rpi/qt5.15/include -I/home/ciel_user/rpi/qt5.15/include/QtWidgets -I/home/ciel_user/rpi/qt5.15/include/QtGui -I/home/ciel_user/rpi/qt5.15/include/QtSerialPort -I/home/ciel_user/rpi/qt5.15/include/QtCore -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include pageetalonnage.h -o moc_pageetalonnage.cpp
 
 moc_pagemodeetpompe.cpp: pagemodeetpompe.h \
-		pagepressee.h \
 		../rpi/qt5.15/include/QtWidgets/QMainWindow \
 		../rpi/qt5.15/include/QtWidgets/qmainwindow.h \
 		../rpi/qt5.15/include/QtWidgets/qtwidgetsglobal.h \
@@ -1411,6 +1410,7 @@ moc_pagenettoyage.cpp: pagenettoyage.h \
 	/home/ciel_user/rpi/qt5.15/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/moc_predefs.h -I/home/ciel_user/rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/rpi/qt5.15/include -I/home/ciel_user/rpi/qt5.15/include/QtWidgets -I/home/ciel_user/rpi/qt5.15/include/QtGui -I/home/ciel_user/rpi/qt5.15/include/QtSerialPort -I/home/ciel_user/rpi/qt5.15/include/QtCore -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include pagenettoyage.h -o moc_pagenettoyage.cpp
 
 moc_pagepressee.cpp: pagepressee.h \
+		pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtWidgets/QMainWindow \
 		../rpi/qt5.15/include/QtWidgets/qmainwindow.h \
 		../rpi/qt5.15/include/QtWidgets/qtwidgetsglobal.h \
@@ -1517,6 +1517,8 @@ moc_pagepressee.cpp: pagepressee.h \
 		../rpi/qt5.15/include/QtGui/qtouchdevice.h \
 		../rpi/qt5.15/include/QtWidgets/qtabwidget.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
+		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
+		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
 		moc_predefs.h \
 		../rpi/qt5.15/bin/moc
 	/home/ciel_user/rpi/qt5.15/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/moc_predefs.h -I/home/ciel_user/rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/rpi/qt5.15/include -I/home/ciel_user/rpi/qt5.15/include/QtWidgets -I/home/ciel_user/rpi/qt5.15/include/QtGui -I/home/ciel_user/rpi/qt5.15/include/QtSerialPort -I/home/ciel_user/rpi/qt5.15/include/QtCore -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include pagepressee.h -o moc_pagepressee.cpp
@@ -1680,8 +1682,8 @@ main.o: main.cpp ../rpi/qt5.15/include/QtWidgets/QApplication \
 		../rpi/qt5.15/include/QtWidgets/qtabwidget.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
 		pageaccueil.h \
-		pagemodeetpompe.h \
 		pagepressee.h \
+		pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
 		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -1793,8 +1795,8 @@ pageaccueil.o: pageaccueil.cpp pageaccueil.h \
 		../rpi/qt5.15/include/QtGui/qtouchdevice.h \
 		../rpi/qt5.15/include/QtWidgets/qtabwidget.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
-		pagemodeetpompe.h \
 		pagepressee.h \
+		pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
 		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
 		ui_pageaccueil.h
@@ -2122,7 +2124,6 @@ pageetalonnage.o: pageetalonnage.cpp pageetalonnage.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageetalonnage.o pageetalonnage.cpp
 
 pagemodeetpompe.o: pagemodeetpompe.cpp pagemodeetpompe.h \
-		pagepressee.h \
 		../rpi/qt5.15/include/QtWidgets/QMainWindow \
 		../rpi/qt5.15/include/QtWidgets/qmainwindow.h \
 		../rpi/qt5.15/include/QtWidgets/qtwidgetsglobal.h \
@@ -2232,6 +2233,7 @@ pagemodeetpompe.o: pagemodeetpompe.cpp pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
 		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
 		pageaccueil.h \
+		pagepressee.h \
 		ui_pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtWidgets/QMessageBox \
 		../rpi/qt5.15/include/QtWidgets/qmessagebox.h \
@@ -2349,6 +2351,7 @@ pagenettoyage.o: pagenettoyage.cpp pagenettoyage.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagenettoyage.o pagenettoyage.cpp
 
 pagepressee.o: pagepressee.cpp pagepressee.h \
+		pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtWidgets/QMainWindow \
 		../rpi/qt5.15/include/QtWidgets/qmainwindow.h \
 		../rpi/qt5.15/include/QtWidgets/qtwidgetsglobal.h \
@@ -2455,6 +2458,8 @@ pagepressee.o: pagepressee.cpp pagepressee.h \
 		../rpi/qt5.15/include/QtGui/qtouchdevice.h \
 		../rpi/qt5.15/include/QtWidgets/qtabwidget.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
+		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
+		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
 		ui_pagepressee.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagepressee.o pagepressee.cpp
 

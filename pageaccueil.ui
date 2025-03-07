@@ -25,7 +25,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <pointsize>19</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -44,7 +44,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <pointsize>19</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -63,7 +63,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <pointsize>19</pointsize>
       <bold>true</bold>
      </font>
     </property>

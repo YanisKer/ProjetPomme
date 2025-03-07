@@ -41,7 +41,7 @@ public:
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(10, 220, 781, 211));
         QFont font;
-        font.setPointSize(15);
+        font.setPointSize(19);
         font.setBold(true);
         pushButton->setFont(font);
         pushButton_2 = new QPushButton(centralwidget);

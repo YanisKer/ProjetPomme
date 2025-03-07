@@ -30,7 +30,7 @@ public:
         pageerreurselec->resize(800, 480);
         pushButton = new QPushButton(pageerreurselec);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(130, 140, 551, 201));
+        pushButton->setGeometry(QRect(130, 160, 551, 201));
         QFont font;
         font.setPointSize(23);
         font.setBold(true);
@@ -51,7 +51,7 @@ public:
     void retranslateUi(QWidget *pageerreurselec)
     {
         pageerreurselec->setWindowTitle(QCoreApplication::translate("pageerreurselec", "Form", nullptr));
-        pushButton->setText(QCoreApplication::translate("pageerreurselec", "COMPRIS", nullptr));
+        pushButton->setText(QCoreApplication::translate("pageerreurselec", "J'ai compris !", nullptr));
         label->setText(QCoreApplication::translate("pageerreurselec", "Veuillez s\303\251lectionner un mode et le nombre de pompes avant de continuer.", nullptr));
     } // retranslateUi
 

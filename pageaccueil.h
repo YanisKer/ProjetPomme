@@ -2,7 +2,7 @@
 #define PAGEACCUEIL_H
 
 #include <QMainWindow>
-#include "pagemodeetpompe.h"
+#include "pagepressee.h"
 
 namespace Ui {
 class PageAccueil;
@@ -20,7 +20,7 @@ private slots:
 
 private:
     Ui::PageAccueil *ui;
-    PageModeEtPompe *pageModeEtPompe;
+    PagePressee *pagePressee;
 };
 
 #endif // PAGEACCUEIL_H
