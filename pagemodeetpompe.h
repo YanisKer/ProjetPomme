@@ -1,6 +1,5 @@
 #ifndef PAGEMODEETPOMPE_H
 #define PAGEMODEETPOMPE_H
-#include "pagepressee.h"
 
 #include <QMainWindow>
 #include <QButtonGroup>

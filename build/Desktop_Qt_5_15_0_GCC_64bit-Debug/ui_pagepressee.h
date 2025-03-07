@@ -25,6 +25,7 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -37,15 +38,19 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(10, 10, 781, 201));
+        pushButton->setGeometry(QRect(10, 10, 781, 181));
         QFont font;
         font.setPointSize(20);
         font.setBold(true);
         pushButton->setFont(font);
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(10, 220, 781, 211));
+        pushButton_2->setGeometry(QRect(410, 200, 381, 201));
         pushButton_2->setFont(font);
+        pushButton_3 = new QPushButton(centralwidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(10, 200, 381, 201));
+        pushButton_3->setFont(font);
         PagePressee->setCentralWidget(centralwidget);
         menubar = new QMenuBar(PagePressee);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -64,7 +69,8 @@ public:
     {
         PagePressee->setWindowTitle(QCoreApplication::translate("PagePressee", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("PagePressee", "Pasteurisation", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("PagePressee", "MIse en bouteille", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("PagePressee", "Mise en bouteille", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("PagePressee", "Retour", nullptr));
     } // retranslateUi
 
 };

@@ -109,14 +109,14 @@ public:
     void retranslateUi(QMainWindow *PageModeEtPompe)
     {
         PageModeEtPompe->setWindowTitle(QCoreApplication::translate("PageModeEtPompe", "MainWindow", nullptr));
-        pb_1pompe->setText(QCoreApplication::translate("PageModeEtPompe", "1 Pompe", nullptr));
+        pb_1pompe->setText(QCoreApplication::translate("PageModeEtPompe", "1 POMPE", nullptr));
         pb_manuel->setText(QCoreApplication::translate("PageModeEtPompe", "Manuel", nullptr));
         pb_semiauto->setText(QCoreApplication::translate("PageModeEtPompe", "Semi-Auto", nullptr));
         pb_auto->setText(QCoreApplication::translate("PageModeEtPompe", "Automatique", nullptr));
-        pb_2pompes->setText(QCoreApplication::translate("PageModeEtPompe", "2 Pompes", nullptr));
-        pb_3pompes->setText(QCoreApplication::translate("PageModeEtPompe", "3 Pompes", nullptr));
-        pb_4pompes->setText(QCoreApplication::translate("PageModeEtPompe", "4 Pompes", nullptr));
-        pb_5pompes->setText(QCoreApplication::translate("PageModeEtPompe", "5 Pompes", nullptr));
+        pb_2pompes->setText(QCoreApplication::translate("PageModeEtPompe", "2 POMPES", nullptr));
+        pb_3pompes->setText(QCoreApplication::translate("PageModeEtPompe", "3 POMPES", nullptr));
+        pb_4pompes->setText(QCoreApplication::translate("PageModeEtPompe", "4 POMPES", nullptr));
+        pb_5pompes->setText(QCoreApplication::translate("PageModeEtPompe", "5 POMPES", nullptr));
         pb_continuer->setText(QCoreApplication::translate("PageModeEtPompe", "CONTINUER", nullptr));
         pushButton_3->setText(QCoreApplication::translate("PageModeEtPompe", "RETOUR", nullptr));
     } // retranslateUi

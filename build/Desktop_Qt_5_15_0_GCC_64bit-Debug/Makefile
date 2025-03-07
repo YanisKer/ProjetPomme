@@ -2507,7 +2507,8 @@ pagepressee.o: ../../pagepressee.cpp ../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QButtonGroup \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qbuttongroup.h \
-		ui_pagepressee.h
+		ui_pagepressee.h \
+		../../pageaccueil.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagepressee.o ../../pagepressee.cpp
 
 moc_pageaccueil.o: moc_pageaccueil.cpp 
