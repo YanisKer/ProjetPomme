@@ -4,21 +4,18 @@
 #include <QWidget>
 
 namespace Ui {
-class PageErreurSelec;
+class pageerreurselec;
 }
 
-class PageErreurSelec : public QWidget {
+class pageerreurselec : public QWidget {
     Q_OBJECT
 
 public:
-    explicit PageErreurSelec(QWidget *parent = nullptr);
-    ~PageErreurSelec();
-
-private slots:
-    void on_pushButton_clicked(); // Slot pour le bouton "Compris"
+    explicit pageerreurselec(QWidget *parent = nullptr);
+    ~pageerreurselec();
 
 private:
-    Ui::PageErreurSelec *ui;
+    Ui::pageerreurselec *ui;
 };
 
 #endif // PAGEERREURSELEC_H
