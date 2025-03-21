@@ -1,6 +1,6 @@
 #include "pagemodeetpompe.h"
-#include "pageaccueil.h"
 #include "ui_pagemodeetpompe.h"
+#include "pagepressee.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QtUiTools/QUiLoader>
