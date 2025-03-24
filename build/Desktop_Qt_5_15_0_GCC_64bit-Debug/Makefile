@@ -3405,6 +3405,8 @@ pagemodeetpompe.o: ../../pagemodeetpompe.cpp ../../pagemodeetpompe.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QButtonGroup \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../pageetalo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
 		ui_pagemodeetpompe.h \
 		../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \

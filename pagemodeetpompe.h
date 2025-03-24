@@ -19,6 +19,7 @@ public:
 private slots:
     void on_pushButton_3_clicked();
     void onButtonClicked();
+    void on_pb_continuer_clicked();
 
 private:
     Ui::PageModeEtPompe *ui;

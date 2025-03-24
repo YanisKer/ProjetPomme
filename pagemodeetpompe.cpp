@@ -1,4 +1,5 @@
 #include "pagemodeetpompe.h"
+#include "pageetalo.h"
 #include "ui_pagemodeetpompe.h"
 #include "pagepressee.h"
 #include <QPushButton>
@@ -13,7 +14,6 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     ui(new Ui::PageModeEtPompe)
 {
     ui->setupUi(this);
-
     QVBoxLayout *layout = new QVBoxLayout(this);
     QButtonGroup *modeButtonGroup = new QButtonGroup(this);
     QButtonGroup *pompeButtonGroup = new QButtonGroup(this);
@@ -41,6 +41,8 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     ui->pushButton_3->setCheckable(true);
     ui->pb_continuer->setCheckable(true);
 
+    ui->pb_continuer->setEnabled(false);
+
     connect(ui->pb_manuel, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_semiauto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_auto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
@@ -50,7 +52,7 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     connect(ui->pb_4pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_5pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pushButton_3, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
-    connect(ui->pb_continuer, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
+    connect(ui->pb_continuer, &QPushButton::clicked, this, &PageModeEtPompe::on_pb_continuer_clicked);
 
 
     this->setWindowState(Qt::WindowFullScreen);
@@ -66,6 +68,18 @@ void PageModeEtPompe::onButtonClicked(){
             qDebug() << button->text() << "Bouton relaché";
         }
     }
+
+    bool modeSelected = ui->pb_manuel->isChecked() ||
+                        ui->pb_semiauto->isChecked() ||
+                        ui->pb_auto->isChecked();
+    bool pompeSelected = ui->pb_1pompe->isChecked() ||
+                         ui->pb_2pompes->isChecked() ||
+                         ui->pb_3pompes->isChecked() ||
+                         ui->pb_4pompes->isChecked() ||
+                         ui->pb_5pompes->isChecked();
+
+                        ui->pb_continuer->setEnabled(modeSelected && pompeSelected);
+                        qDebug() << "Continuer activé:" << ui->pb_continuer->isEnabled();
 }
 
 PageModeEtPompe::~PageModeEtPompe()
@@ -81,4 +95,12 @@ void PageModeEtPompe::on_pushButton_3_clicked()
 
     this->hide();
     return;
+}
+
+void PageModeEtPompe::on_pb_continuer_clicked()
+{
+    pageetalo *pageEtalo = new pageetalo(this);
+    pageEtalo->setWindowState(Qt::WindowFullScreen);
+    pageEtalo->show();
+    this->hide();
 }
