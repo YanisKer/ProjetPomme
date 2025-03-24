@@ -24,3 +24,13 @@ void PagePressee::on_pushButton_2_clicked()
 
 }
 
+
+void PagePressee::on_pushButton_3_clicked()
+{
+    PageAccueil *pageAccueil = new PageAccueil(this);
+    pageAccueil->setWindowState(Qt::WindowFullScreen);
+    pageAccueil->show();
+    this->hide();
+    return;
+}
+

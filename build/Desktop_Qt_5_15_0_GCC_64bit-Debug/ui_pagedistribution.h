@@ -53,7 +53,7 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         label_2 = new QLabel(frame);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(60, 58, 21, 17));
+        label_2->setGeometry(QRect(62, 59, 21, 17));
         QFont font1;
         font1.setPointSize(17);
         font1.setBold(true);
@@ -65,7 +65,7 @@ public:
         frame_2->setFrameShadow(QFrame::Raised);
         label_3 = new QLabel(frame_2);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(64, 57, 14, 17));
+        label_3->setGeometry(QRect(64, 59, 14, 17));
         label_3->setFont(font1);
         frame_4 = new QFrame(pagedistribution);
         frame_4->setObjectName(QString::fromUtf8("frame_4"));
@@ -74,7 +74,7 @@ public:
         frame_4->setFrameShadow(QFrame::Raised);
         label_4 = new QLabel(frame_4);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(62, 54, 21, 17));
+        label_4->setGeometry(QRect(60, 58, 20, 17));
         label_4->setFont(font1);
         frame_3 = new QFrame(pagedistribution);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
@@ -83,7 +83,7 @@ public:
         frame_3->setFrameShadow(QFrame::Raised);
         label_5 = new QLabel(frame_3);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(66, 55, 21, 17));
+        label_5->setGeometry(QRect(65, 59, 21, 17));
         label_5->setFont(font1);
         frame_5 = new QFrame(pagedistribution);
         frame_5->setObjectName(QString::fromUtf8("frame_5"));
@@ -92,7 +92,7 @@ public:
         frame_5->setFrameShadow(QFrame::Raised);
         label_6 = new QLabel(frame_5);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(60, 54, 21, 17));
+        label_6->setGeometry(QRect(61, 58, 21, 17));
         label_6->setFont(font1);
         pushButton = new QPushButton(pagedistribution);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
