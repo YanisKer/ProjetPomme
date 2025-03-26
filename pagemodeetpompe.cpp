@@ -1,5 +1,6 @@
 #include "pagemodeetpompe.h"
 #include "pageetalo.h"
+#include "pagenettoyage.h"
 #include "ui_pagemodeetpompe.h"
 #include "pagepressee.h"
 #include <QPushButton>
@@ -14,7 +15,6 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     ui(new Ui::PageModeEtPompe)
 {
     ui->setupUi(this);
-    QVBoxLayout *layout = new QVBoxLayout(this);
     QButtonGroup *modeButtonGroup = new QButtonGroup(this);
     QButtonGroup *pompeButtonGroup = new QButtonGroup(this);
 
@@ -99,8 +99,9 @@ void PageModeEtPompe::on_pushButton_3_clicked()
 
 void PageModeEtPompe::on_pb_continuer_clicked()
 {
-    pageetalo *pageEtalo = new pageetalo(this);
-    pageEtalo->setWindowState(Qt::WindowFullScreen);
-    pageEtalo->show();
+    pagenettoyage *pageNettoyage = new pagenettoyage(this);
+    pageNettoyage->setWindowState(Qt::WindowFullScreen);
+    pageNettoyage->show();
     this->hide();
+    return;
 }

@@ -3361,14 +3361,25 @@ pagemodeetpompe.o: pagemodeetpompe.cpp pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
 		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
 		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
+		pageetalo.h \
+		../rpi/qt5.15/include/QtWidgets/QWidget \
 		ui_pagemodeetpompe.h \
 		pagepressee.h \
+		../rpi/qt5.15/include/QtWidgets/QPushButton \
+		../rpi/qt5.15/include/QtWidgets/qpushbutton.h \
+		../rpi/qt5.15/include/QtWidgets/qabstractbutton.h \
 		../rpi/qt5.15/include/QtWidgets/QMessageBox \
 		../rpi/qt5.15/include/QtWidgets/qmessagebox.h \
 		../rpi/qt5.15/include/QtWidgets/qdialog.h \
+		../rpi/qt5.15/include/QtWidgets/QVBoxLayout \
+		../rpi/qt5.15/include/QtWidgets/qboxlayout.h \
+		../rpi/qt5.15/include/QtWidgets/qlayout.h \
+		../rpi/qt5.15/include/QtWidgets/qlayoutitem.h \
+		../rpi/qt5.15/include/QtWidgets/qgridlayout.h \
 		../rpi/qt5.15/include/QtCore/QFile \
 		../rpi/qt5.15/include/QtUiTools/QUiLoader \
-		../rpi/qt5.15/include/QtUiTools/quiloader.h
+		../rpi/qt5.15/include/QtUiTools/quiloader.h \
+		../rpi/qt5.15/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagemodeetpompe.o pagemodeetpompe.cpp
 
 pagenettoyage.o: pagenettoyage.cpp pagenettoyage.h \
