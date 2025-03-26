@@ -17,6 +17,7 @@ public:
 
 private slots:
     void ouvrirPageSecondaire();
+    void traiterDonnees(const QByteArray &data);
 
 private:
     Ui::PageAccueil *ui;

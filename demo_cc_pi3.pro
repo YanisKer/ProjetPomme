@@ -21,7 +21,8 @@ SOURCES += \
     pageetaloretirer.cpp \
     pagemodeetpompe.cpp \
     pagenettoyage.cpp \
-    pagepressee.cpp
+    pagepressee.cpp \
+    ComSerie.cpp
 
 HEADERS += \
     pageaccueil.h \
@@ -35,7 +36,8 @@ HEADERS += \
     pageetaloretirer.h \
     pagemodeetpompe.h \
     pagenettoyage.h \
-    pagepressee.h
+    pagepressee.h \
+    ComSerie.h
 
 FORMS += \
     pageaccueil.ui \

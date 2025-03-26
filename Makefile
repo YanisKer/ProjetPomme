@@ -64,7 +64,8 @@ SOURCES       = main.cpp \
 		pageetaloretirer.cpp \
 		pagemodeetpompe.cpp \
 		pagenettoyage.cpp \
-		pagepressee.cpp moc_pageaccueil.cpp \
+		pagepressee.cpp \
+		ComSerie.cpp moc_pageaccueil.cpp \
 		moc_pagedistribution.cpp \
 		moc_pageerreurselec.cpp \
 		moc_pageetalo.cpp \
@@ -75,7 +76,8 @@ SOURCES       = main.cpp \
 		moc_pageetaloretirer.cpp \
 		moc_pagemodeetpompe.cpp \
 		moc_pagenettoyage.cpp \
-		moc_pagepressee.cpp
+		moc_pagepressee.cpp \
+		moc_ComSerie.cpp
 OBJECTS       = main.o \
 		pageaccueil.o \
 		pagedistribution.o \
@@ -89,6 +91,7 @@ OBJECTS       = main.o \
 		pagemodeetpompe.o \
 		pagenettoyage.o \
 		pagepressee.o \
+		ComSerie.o \
 		moc_pageaccueil.o \
 		moc_pagedistribution.o \
 		moc_pageerreurselec.o \
@@ -100,7 +103,8 @@ OBJECTS       = main.o \
 		moc_pageetaloretirer.o \
 		moc_pagemodeetpompe.o \
 		moc_pagenettoyage.o \
-		moc_pagepressee.o
+		moc_pagepressee.o \
+		moc_ComSerie.o
 DIST          = ../rpi/qt5.15/mkspecs/features/spec_pre.prf \
 		../rpi/qt5.15/mkspecs/common/unix.conf \
 		../rpi/qt5.15/mkspecs/common/linux.conf \
@@ -308,7 +312,8 @@ DIST          = ../rpi/qt5.15/mkspecs/features/spec_pre.prf \
 		pageetaloretirer.h \
 		pagemodeetpompe.h \
 		pagenettoyage.h \
-		pagepressee.h main.cpp \
+		pagepressee.h \
+		ComSerie.h main.cpp \
 		pageaccueil.cpp \
 		pagedistribution.cpp \
 		pageerreurselec.cpp \
@@ -320,7 +325,8 @@ DIST          = ../rpi/qt5.15/mkspecs/features/spec_pre.prf \
 		pageetaloretirer.cpp \
 		pagemodeetpompe.cpp \
 		pagenettoyage.cpp \
-		pagepressee.cpp
+		pagepressee.cpp \
+		ComSerie.cpp
 QMAKE_TARGET  = demo_cc_pi3
 DESTDIR       = 
 TARGET        = demo_cc_pi3
@@ -742,8 +748,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../rpi/qt5.15/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents pageaccueil.h pagedistribution.h pageerreurselec.h pageetalo.h pageetalo2.h pageetalo3.h pageetalo4.h pageetalo5.h pageetaloretirer.h pagemodeetpompe.h pagenettoyage.h pagepressee.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp pageaccueil.cpp pagedistribution.cpp pageerreurselec.cpp pageetalo.cpp pageetalo2.cpp pageetalo3.cpp pageetalo4.cpp pageetalo5.cpp pageetaloretirer.cpp pagemodeetpompe.cpp pagenettoyage.cpp pagepressee.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents pageaccueil.h pagedistribution.h pageerreurselec.h pageetalo.h pageetalo2.h pageetalo3.h pageetalo4.h pageetalo5.h pageetaloretirer.h pagemodeetpompe.h pagenettoyage.h pagepressee.h ComSerie.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp pageaccueil.cpp pagedistribution.cpp pageerreurselec.cpp pageetalo.cpp pageetalo2.cpp pageetalo3.cpp pageetalo4.cpp pageetalo5.cpp pageetaloretirer.cpp pagemodeetpompe.cpp pagenettoyage.cpp pagepressee.cpp ComSerie.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents pageaccueil.ui pagedistribution.ui pageerreurselec.ui pageetalo.ui pageetalo2.ui pageetalo3.ui pageetalo4.ui pageetalo5.ui pageetalonnageRetirer.ui pageetaloretirer.ui pagemodeetpompe.ui pagenettoyage.ui pagepressee.ui $(DISTDIR)/
 
 
@@ -776,9 +782,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../rpi/qt5.15/mkspecs/features/data/dummy.cpp
 	/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ -march=armv8-a -mtune=cortex-a72 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard --sysroot=/home/ciel_user/rpi/sysroot -O2 -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h ../rpi/qt5.15/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pageetalo2.cpp moc_pageetalo3.cpp moc_pageetalo4.cpp moc_pageetalo5.cpp moc_pageetaloretirer.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp
+compiler_moc_header_make_all: moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pageetalo2.cpp moc_pageetalo3.cpp moc_pageetalo4.cpp moc_pageetalo5.cpp moc_pageetaloretirer.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pageetalo2.cpp moc_pageetalo3.cpp moc_pageetalo4.cpp moc_pageetalo5.cpp moc_pageetaloretirer.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp
+	-$(DEL_FILE) moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pageetalo2.cpp moc_pageetalo3.cpp moc_pageetalo4.cpp moc_pageetalo5.cpp moc_pageetaloretirer.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
 moc_pageaccueil.cpp: pageaccueil.h \
 		../rpi/qt5.15/include/QtWidgets/QMainWindow \
 		../rpi/qt5.15/include/QtWidgets/qmainwindow.h \
@@ -2093,6 +2099,70 @@ moc_pagepressee.cpp: pagepressee.h \
 		../rpi/qt5.15/bin/moc
 	/home/ciel_user/rpi/qt5.15/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/moc_predefs.h -I/home/ciel_user/rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/rpi/qt5.15/include -I/home/ciel_user/rpi/qt5.15/include/QtWidgets -I/home/ciel_user/rpi/qt5.15/include/QtGui -I/home/ciel_user/rpi/qt5.15/include/QtSerialPort -I/home/ciel_user/rpi/qt5.15/include/QtCore -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include pagepressee.h -o moc_pagepressee.cpp
 
+moc_ComSerie.cpp: ComSerie.h \
+		../rpi/qt5.15/include/QtCore/QObject \
+		../rpi/qt5.15/include/QtCore/qobject.h \
+		../rpi/qt5.15/include/QtCore/qobjectdefs.h \
+		../rpi/qt5.15/include/QtCore/qnamespace.h \
+		../rpi/qt5.15/include/QtCore/qglobal.h \
+		../rpi/qt5.15/include/QtCore/qconfig-bootstrapped.h \
+		../rpi/qt5.15/include/QtCore/qconfig.h \
+		../rpi/qt5.15/include/QtCore/qtcore-config.h \
+		../rpi/qt5.15/include/QtCore/qsystemdetection.h \
+		../rpi/qt5.15/include/QtCore/qprocessordetection.h \
+		../rpi/qt5.15/include/QtCore/qcompilerdetection.h \
+		../rpi/qt5.15/include/QtCore/qtypeinfo.h \
+		../rpi/qt5.15/include/QtCore/qsysinfo.h \
+		../rpi/qt5.15/include/QtCore/qlogging.h \
+		../rpi/qt5.15/include/QtCore/qflags.h \
+		../rpi/qt5.15/include/QtCore/qatomic.h \
+		../rpi/qt5.15/include/QtCore/qbasicatomic.h \
+		../rpi/qt5.15/include/QtCore/qatomic_bootstrap.h \
+		../rpi/qt5.15/include/QtCore/qgenericatomic.h \
+		../rpi/qt5.15/include/QtCore/qatomic_cxx11.h \
+		../rpi/qt5.15/include/QtCore/qatomic_msvc.h \
+		../rpi/qt5.15/include/QtCore/qglobalstatic.h \
+		../rpi/qt5.15/include/QtCore/qmutex.h \
+		../rpi/qt5.15/include/QtCore/qnumeric.h \
+		../rpi/qt5.15/include/QtCore/qversiontagging.h \
+		../rpi/qt5.15/include/QtCore/qobjectdefs_impl.h \
+		../rpi/qt5.15/include/QtCore/qstring.h \
+		../rpi/qt5.15/include/QtCore/qchar.h \
+		../rpi/qt5.15/include/QtCore/qbytearray.h \
+		../rpi/qt5.15/include/QtCore/qrefcount.h \
+		../rpi/qt5.15/include/QtCore/qarraydata.h \
+		../rpi/qt5.15/include/QtCore/qstringliteral.h \
+		../rpi/qt5.15/include/QtCore/qstringalgorithms.h \
+		../rpi/qt5.15/include/QtCore/qstringview.h \
+		../rpi/qt5.15/include/QtCore/qstringbuilder.h \
+		../rpi/qt5.15/include/QtCore/qlist.h \
+		../rpi/qt5.15/include/QtCore/qalgorithms.h \
+		../rpi/qt5.15/include/QtCore/qiterator.h \
+		../rpi/qt5.15/include/QtCore/qhashfunctions.h \
+		../rpi/qt5.15/include/QtCore/qpair.h \
+		../rpi/qt5.15/include/QtCore/qvector.h \
+		../rpi/qt5.15/include/QtCore/qcontainertools_impl.h \
+		../rpi/qt5.15/include/QtCore/qpoint.h \
+		../rpi/qt5.15/include/QtCore/qbytearraylist.h \
+		../rpi/qt5.15/include/QtCore/qstringlist.h \
+		../rpi/qt5.15/include/QtCore/qregexp.h \
+		../rpi/qt5.15/include/QtCore/qstringmatcher.h \
+		../rpi/qt5.15/include/QtCore/qcoreevent.h \
+		../rpi/qt5.15/include/QtCore/qscopedpointer.h \
+		../rpi/qt5.15/include/QtCore/qmetatype.h \
+		../rpi/qt5.15/include/QtCore/qvarlengtharray.h \
+		../rpi/qt5.15/include/QtCore/qcontainerfwd.h \
+		../rpi/qt5.15/include/QtCore/qobject_impl.h \
+		../rpi/qt5.15/include/QtSerialPort/QSerialPort \
+		../rpi/qt5.15/include/QtSerialPort/qserialport.h \
+		../rpi/qt5.15/include/QtCore/qiodevice.h \
+		../rpi/qt5.15/include/QtSerialPort/qserialportglobal.h \
+		../rpi/qt5.15/include/QtSerialPort/QSerialPortInfo \
+		../rpi/qt5.15/include/QtSerialPort/qserialportinfo.h \
+		moc_predefs.h \
+		../rpi/qt5.15/bin/moc
+	/home/ciel_user/rpi/qt5.15/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/moc_predefs.h -I/home/ciel_user/rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/rpi/qt5.15/include -I/home/ciel_user/rpi/qt5.15/include/QtWidgets -I/home/ciel_user/rpi/qt5.15/include/QtGui -I/home/ciel_user/rpi/qt5.15/include/QtSerialPort -I/home/ciel_user/rpi/qt5.15/include/QtCore -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include ComSerie.h -o moc_ComSerie.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
@@ -3363,6 +3433,7 @@ pagemodeetpompe.o: pagemodeetpompe.cpp pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
 		pageetalo.h \
 		../rpi/qt5.15/include/QtWidgets/QWidget \
+		pagenettoyage.h \
 		ui_pagemodeetpompe.h \
 		pagepressee.h \
 		../rpi/qt5.15/include/QtWidgets/QPushButton \
@@ -3603,6 +3674,68 @@ pagepressee.o: pagepressee.cpp pagepressee.h \
 		pageaccueil.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagepressee.o pagepressee.cpp
 
+ComSerie.o: ComSerie.cpp ComSerie.h \
+		../rpi/qt5.15/include/QtCore/QObject \
+		../rpi/qt5.15/include/QtCore/qobject.h \
+		../rpi/qt5.15/include/QtCore/qobjectdefs.h \
+		../rpi/qt5.15/include/QtCore/qnamespace.h \
+		../rpi/qt5.15/include/QtCore/qglobal.h \
+		../rpi/qt5.15/include/QtCore/qconfig-bootstrapped.h \
+		../rpi/qt5.15/include/QtCore/qconfig.h \
+		../rpi/qt5.15/include/QtCore/qtcore-config.h \
+		../rpi/qt5.15/include/QtCore/qsystemdetection.h \
+		../rpi/qt5.15/include/QtCore/qprocessordetection.h \
+		../rpi/qt5.15/include/QtCore/qcompilerdetection.h \
+		../rpi/qt5.15/include/QtCore/qtypeinfo.h \
+		../rpi/qt5.15/include/QtCore/qsysinfo.h \
+		../rpi/qt5.15/include/QtCore/qlogging.h \
+		../rpi/qt5.15/include/QtCore/qflags.h \
+		../rpi/qt5.15/include/QtCore/qatomic.h \
+		../rpi/qt5.15/include/QtCore/qbasicatomic.h \
+		../rpi/qt5.15/include/QtCore/qatomic_bootstrap.h \
+		../rpi/qt5.15/include/QtCore/qgenericatomic.h \
+		../rpi/qt5.15/include/QtCore/qatomic_cxx11.h \
+		../rpi/qt5.15/include/QtCore/qatomic_msvc.h \
+		../rpi/qt5.15/include/QtCore/qglobalstatic.h \
+		../rpi/qt5.15/include/QtCore/qmutex.h \
+		../rpi/qt5.15/include/QtCore/qnumeric.h \
+		../rpi/qt5.15/include/QtCore/qversiontagging.h \
+		../rpi/qt5.15/include/QtCore/qobjectdefs_impl.h \
+		../rpi/qt5.15/include/QtCore/qstring.h \
+		../rpi/qt5.15/include/QtCore/qchar.h \
+		../rpi/qt5.15/include/QtCore/qbytearray.h \
+		../rpi/qt5.15/include/QtCore/qrefcount.h \
+		../rpi/qt5.15/include/QtCore/qarraydata.h \
+		../rpi/qt5.15/include/QtCore/qstringliteral.h \
+		../rpi/qt5.15/include/QtCore/qstringalgorithms.h \
+		../rpi/qt5.15/include/QtCore/qstringview.h \
+		../rpi/qt5.15/include/QtCore/qstringbuilder.h \
+		../rpi/qt5.15/include/QtCore/qlist.h \
+		../rpi/qt5.15/include/QtCore/qalgorithms.h \
+		../rpi/qt5.15/include/QtCore/qiterator.h \
+		../rpi/qt5.15/include/QtCore/qhashfunctions.h \
+		../rpi/qt5.15/include/QtCore/qpair.h \
+		../rpi/qt5.15/include/QtCore/qvector.h \
+		../rpi/qt5.15/include/QtCore/qcontainertools_impl.h \
+		../rpi/qt5.15/include/QtCore/qpoint.h \
+		../rpi/qt5.15/include/QtCore/qbytearraylist.h \
+		../rpi/qt5.15/include/QtCore/qstringlist.h \
+		../rpi/qt5.15/include/QtCore/qregexp.h \
+		../rpi/qt5.15/include/QtCore/qstringmatcher.h \
+		../rpi/qt5.15/include/QtCore/qcoreevent.h \
+		../rpi/qt5.15/include/QtCore/qscopedpointer.h \
+		../rpi/qt5.15/include/QtCore/qmetatype.h \
+		../rpi/qt5.15/include/QtCore/qvarlengtharray.h \
+		../rpi/qt5.15/include/QtCore/qcontainerfwd.h \
+		../rpi/qt5.15/include/QtCore/qobject_impl.h \
+		../rpi/qt5.15/include/QtSerialPort/QSerialPort \
+		../rpi/qt5.15/include/QtSerialPort/qserialport.h \
+		../rpi/qt5.15/include/QtCore/qiodevice.h \
+		../rpi/qt5.15/include/QtSerialPort/qserialportglobal.h \
+		../rpi/qt5.15/include/QtSerialPort/QSerialPortInfo \
+		../rpi/qt5.15/include/QtSerialPort/qserialportinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ComSerie.o ComSerie.cpp
+
 moc_pageaccueil.o: moc_pageaccueil.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pageaccueil.o moc_pageaccueil.cpp
 
@@ -3638,6 +3771,9 @@ moc_pagenettoyage.o: moc_pagenettoyage.cpp
 
 moc_pagepressee.o: moc_pagepressee.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pagepressee.o moc_pagepressee.cpp
+
+moc_ComSerie.o: moc_ComSerie.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ComSerie.o moc_ComSerie.cpp
 
 ####### Install
 
