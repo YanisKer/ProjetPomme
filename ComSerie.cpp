@@ -12,7 +12,7 @@ ComSerie* ComSerie::getInstance() {
 ComSerie::ComSerie(QObject *parent) : QObject(parent) {
     portSerie = new QSerialPort(this);
     portSerie->setPortName("/dev/ttyACM0");
-    portSerie->setBaudRate(QSerialPort::Baud9600);
+    portSerie->setBaudRate(QSerialPort::Baud115200);
     
     if (portSerie->open(QIODevice::ReadWrite)) {
         connect(portSerie, &QSerialPort::readyRead, this, &ComSerie::lireDonnees);

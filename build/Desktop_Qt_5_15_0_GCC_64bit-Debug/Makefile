@@ -2514,7 +2514,8 @@ pageaccueil.o: ../../pageaccueil.cpp ../../pageaccueil.h \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialport.h \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialportglobal.h \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/QSerialPortInfo \
-		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialportinfo.h
+		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialportinfo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageaccueil.o ../../pageaccueil.cpp
 
 pagedistribution.o: ../../pagedistribution.cpp ../../pagedistribution.h \
