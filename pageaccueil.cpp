@@ -24,4 +24,4 @@ void PageAccueil::ouvrirPageSecondaire() {
 
 void PageAccueil::traiterDonnees(const QByteArray &data){
     qDebug() << "Data recue" << (data);
-   }
+}
