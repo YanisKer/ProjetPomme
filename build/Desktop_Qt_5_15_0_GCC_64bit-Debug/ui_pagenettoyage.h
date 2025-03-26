@@ -28,7 +28,7 @@ public:
         pagenettoyage->resize(800, 480);
         label = new QLabel(pagenettoyage);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(140, 190, 621, 91));
+        label->setGeometry(QRect(130, 180, 621, 91));
         QFont font;
         font.setPointSize(35);
         font.setBold(true);
@@ -42,7 +42,7 @@ public:
     void retranslateUi(QWidget *pagenettoyage)
     {
         pagenettoyage->setWindowTitle(QCoreApplication::translate("pagenettoyage", "Form", nullptr));
-        label->setText(QCoreApplication::translate("pagenettoyage", "NETTOYAGE EN COURS..", nullptr));
+        label->setText(QCoreApplication::translate("pagenettoyage", "NETTOYAGE EN COURS", nullptr));
     } // retranslateUi
 
 };
