@@ -18,12 +18,10 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     QButtonGroup *modeButtonGroup = new QButtonGroup(this);
     QButtonGroup *pompeButtonGroup = new QButtonGroup(this);
 
-    modeButtonGroup = new QButtonGroup(this);
     modeButtonGroup->addButton(ui->pb_manuel, 0);
     modeButtonGroup->addButton(ui->pb_semiauto, 1);
     modeButtonGroup->addButton(ui->pb_auto, 2);
 
-    pompeButtonGroup = new QButtonGroup(this);
     pompeButtonGroup->addButton(ui->pb_1pompe, 1);
     pompeButtonGroup->addButton(ui->pb_2pompes, 2);
     pompeButtonGroup->addButton(ui->pb_3pompes, 3);
@@ -43,6 +41,7 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
 
     ui->pb_continuer->setEnabled(false);
 
+    // Connexions
     connect(ui->pb_manuel, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_semiauto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_auto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
@@ -52,11 +51,11 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     connect(ui->pb_4pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_5pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pushButton_3, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
+
+    // ✅ Connexion correcte au slot CONTINUER
     connect(ui->pb_continuer, &QPushButton::clicked, this, &PageModeEtPompe::on_pb_continuer_clicked);
 
-
     this->setWindowState(Qt::WindowFullScreen);
-
 }
 
 void PageModeEtPompe::onButtonClicked(){
@@ -65,7 +64,7 @@ void PageModeEtPompe::onButtonClicked(){
         if (button->isChecked()){
             qDebug() << button->text() << "Bouton enfoncé";
         } else {
-            qDebug() << button->text() << "Bouton relaché";
+            qDebug() << button->text() << "Bouton relâché";
         }
     }
 
@@ -78,8 +77,8 @@ void PageModeEtPompe::onButtonClicked(){
                          ui->pb_4pompes->isChecked() ||
                          ui->pb_5pompes->isChecked();
 
-                        ui->pb_continuer->setEnabled(modeSelected && pompeSelected);
-                        qDebug() << "Continuer activé:" << ui->pb_continuer->isEnabled();
+    ui->pb_continuer->setEnabled(modeSelected && pompeSelected);
+    qDebug() << "Continuer activé:" << ui->pb_continuer->isEnabled();
 }
 
 PageModeEtPompe::~PageModeEtPompe()
@@ -92,16 +91,17 @@ void PageModeEtPompe::on_pushButton_3_clicked()
     PagePressee *pagePressee = new PagePressee(this);
     pagePressee->setWindowState(Qt::WindowFullScreen);
     pagePressee->show();
-
     this->hide();
-    return;
 }
 
 void PageModeEtPompe::on_pb_continuer_clicked()
 {
-    pagenettoyage *pageNettoyage = new pagenettoyage(this);
-    pageNettoyage->setWindowState(Qt::WindowFullScreen);
-    pageNettoyage->show();
+
+    if (!pageEtalo) {
+        pageEtalo = new PageEtalo(); // NE PAS mettre "this" en parent ici
+    }
+    pageEtalo->setWindowState(Qt::WindowFullScreen);
+    pageEtalo->show();
     this->hide();
-    return;
+
 }

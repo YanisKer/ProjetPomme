@@ -1,7 +1,6 @@
 #ifndef PAGEPRESSEE_H
 #define PAGEPRESSEE_H
 
-#include "pagemodeetpompe.h"
 #include <QMainWindow>
 
 namespace Ui {

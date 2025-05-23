@@ -37,4 +37,3 @@ void ComSerie::lireDonnees() {
     QByteArray data = portSerie->readAll();
     emit dataRecu(data);
 }
-

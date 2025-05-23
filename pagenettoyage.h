@@ -1,7 +1,7 @@
 #ifndef PAGENETTOYAGE_H
 #define PAGENETTOYAGE_H
 
-#include <QWidget>
+#include <QMainWindow>
 
 namespace Ui {
 class pagenettoyage;

@@ -2,21 +2,26 @@
 #define PAGEETALO_H
 
 #include <QWidget>
+#include <QSerialPort>
 
-namespace Ui {
-class pageetalo;
-}
+class QLabel;
 
-class pageetalo : public QWidget
+class PageEtalo : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit pageetalo(QWidget *parent = nullptr);
-    ~pageetalo();
+    explicit PageEtalo(QWidget *parent = nullptr);
+
+private slots:
+    void readSerialData();
 
 private:
-    Ui::pageetalo *ui;
+    QString decodeMessage(const QString &msg);
+
+    QSerialPort *serial;
+    QByteArray buffer;
+    QLabel *labelInstruction;
 };
 
 #endif // PAGEETALO_H

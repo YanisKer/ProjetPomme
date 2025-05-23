@@ -1,6 +1,8 @@
 #include "pagepressee.h"
 #include "ui_pagepressee.h"
 #include "pageaccueil.h"
+#include "pagemodeetpompe.h"
+
 PagePressee::PagePressee(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::PagePressee)

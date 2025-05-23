@@ -1,6 +1,7 @@
 #ifndef PAGEMODEETPOMPE_H
 #define PAGEMODEETPOMPE_H
 
+#include "pageetalo.h"
 #include <QMainWindow>
 #include <QButtonGroup>
 
@@ -27,6 +28,8 @@ private:
     QButtonGroup *pompeButtonGroup;
     int selectedMode;
     int selectedPompeCount;
+    PageEtalo *pageEtalo = nullptr; // Ajout ici
+
 };
 
 #endif // PAGEMODEETPOMPE_H
