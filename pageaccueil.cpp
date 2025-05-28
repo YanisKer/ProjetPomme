@@ -8,8 +8,8 @@ PageAccueil::PageAccueil(QWidget *parent) :
     ui(new Ui::PageAccueil) {
     ui->setupUi(this);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &PageAccueil::ouvrirPageSecondaire);
-    ComSerie::getInstance()->envoyerCommande("test");
-    connect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageAccueil::traiterDonnees);
+
+    connect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageAccueil::traiterDonnees_accueil);
 }
 
 PageAccueil::~PageAccueil() {
@@ -19,9 +19,10 @@ PageAccueil::~PageAccueil() {
 void PageAccueil::ouvrirPageSecondaire() {
     pagePressee = new PagePressee(this);
     pagePressee->show();
+    disconnect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageAccueil::traiterDonnees_accueil);
     this->hide();
 }
 
-void PageAccueil::traiterDonnees(const QByteArray &data){
+void PageAccueil::traiterDonnees_accueil(const QByteArray &data){
     qDebug() << "Data recue" << (data);
 }

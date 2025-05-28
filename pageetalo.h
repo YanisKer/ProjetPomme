@@ -14,14 +14,14 @@ public:
     explicit PageEtalo(QWidget *parent = nullptr);
 
 private slots:
-    void readSerialData();
-
+    void traiterDonnees_etalo(const QByteArray &data);
 private:
-    QString decodeMessage(const QString &msg);
+
 
     QSerialPort *serial;
     QByteArray buffer;
     QLabel *labelInstruction;
+    QString commandeRecue;
 };
 
 #endif // PAGEETALO_H

@@ -1,5 +1,6 @@
 #include "ComSerie.h"
 #include <QDebug>
+#include <QMessageBox>
 
 ComSerie* ComSerie::instance = nullptr;
 
@@ -18,6 +19,8 @@ ComSerie::ComSerie(QObject *parent) : QObject(parent) {
         connect(portSerie, &QSerialPort::readyRead, this, &ComSerie::lireDonnees);
     } else {
         qDebug() << "Erreur ouverture port série :" << portSerie->errorString();
+        QMessageBox::critical(nullptr,"Erreur", "Erreur d'ouverture du port série");
+
     }
 }
 

@@ -14,10 +14,6 @@ SOURCES += \
     pagedistribution.cpp \
     pageerreurselec.cpp \
     pageetalo.cpp \
-    pageetalo2.cpp \
-    pageetalo3.cpp \
-    pageetalo4.cpp \
-    pageetalo5.cpp \
     pageetaloretirer.cpp \
     pagemodeetpompe.cpp \
     pagenettoyage.cpp \
@@ -29,10 +25,6 @@ HEADERS += \
     pagedistribution.h \
     pageerreurselec.h \
     pageetalo.h \
-    pageetalo2.h \
-    pageetalo3.h \
-    pageetalo4.h \
-    pageetalo5.h \
     pageetaloretirer.h \
     pagemodeetpompe.h \
     pagenettoyage.h \
@@ -43,11 +35,6 @@ FORMS += \
     pageaccueil.ui \
     pagedistribution.ui \
     pageerreurselec.ui \
-    pageetalo.ui \
-    pageetalo2.ui \
-    pageetalo3.ui \
-    pageetalo4.ui \
-    pageetalo5.ui \
     pageetalonnageRetirer.ui \
     pageetaloretirer.ui \
     pagemodeetpompe.ui \

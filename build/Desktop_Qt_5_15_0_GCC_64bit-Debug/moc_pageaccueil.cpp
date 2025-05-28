@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PageAccueil_t {
     QByteArrayData data[5];
-    char stringdata0[54];
+    char stringdata0[62];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,12 +35,12 @@ static const qt_meta_stringdata_PageAccueil_t qt_meta_stringdata_PageAccueil = {
 QT_MOC_LITERAL(0, 0, 11), // "PageAccueil"
 QT_MOC_LITERAL(1, 12, 20), // "ouvrirPageSecondaire"
 QT_MOC_LITERAL(2, 33, 0), // ""
-QT_MOC_LITERAL(3, 34, 14), // "traiterDonnees"
-QT_MOC_LITERAL(4, 49, 4) // "data"
+QT_MOC_LITERAL(3, 34, 22), // "traiterDonnees_accueil"
+QT_MOC_LITERAL(4, 57, 4) // "data"
 
     },
     "PageAccueil\0ouvrirPageSecondaire\0\0"
-    "traiterDonnees\0data"
+    "traiterDonnees_accueil\0data"
 };
 #undef QT_MOC_LITERAL
 
@@ -75,7 +75,7 @@ void PageAccueil::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->ouvrirPageSecondaire(); break;
-        case 1: _t->traiterDonnees((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
+        case 1: _t->traiterDonnees_accueil((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
         default: ;
         }
     }

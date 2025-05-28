@@ -1,7 +1,8 @@
 #include "pageetalo.h"
 #include <QVBoxLayout>
 #include <QLabel>
-
+#include "ComSerie.h"
+#include <QDebug>
 PageEtalo::PageEtalo(QWidget *parent)
     : QWidget(parent),
     serial(new QSerialPort(this)),
@@ -9,48 +10,51 @@ PageEtalo::PageEtalo(QWidget *parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(labelInstruction);
+    labelInstruction->setStyleSheet("font-size: 27pt;");
+    labelInstruction->setAlignment(Qt::AlignCenter);
 
-    serial->setPortName("/dev/ttyACM*");  // À adapter
-    serial->setBaudRate(QSerialPort::Baud9600);
-    serial->setDataBits(QSerialPort::Data8);
-    serial->setParity(QSerialPort::NoParity);
-    serial->setStopBits(QSerialPort::OneStop);
-    serial->setFlowControl(QSerialPort::NoFlowControl);
-
-    if (!serial->open(QIODevice::ReadOnly)) {
-        labelInstruction->setText("Erreur ouverture port série");
-        return;
-    }
-
-    connect(serial, &QSerialPort::readyRead, this, &PageEtalo::readSerialData);
+    ComSerie::getInstance()->envoyerCommande("TETX");
+    connect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageEtalo::traiterDonnees_etalo);
+    commandeRecue="";
 }
 
-void PageEtalo::readSerialData()
-{
-    QByteArray data = serial->readAll();
-    buffer.append(data);
 
-    while (buffer.contains('\n')) {
-        int index = buffer.indexOf('\n');
-        QByteArray line = buffer.left(index).trimmed();
-        buffer.remove(0, index + 1);
+void PageEtalo::traiterDonnees_etalo(const QByteArray &data){
 
-        QString msg = QString::fromUtf8(line);
+    commandeRecue+=QString(data);
 
-        // Vérifie que le message commence par 'T' et finit par 'X'
-        if (msg.startsWith('T') && msg.endsWith('X')) {
-            QString instruction = decodeMessage(msg);
-            labelInstruction->setText(instruction);
+    if(commandeRecue.endsWith('\n')){
+
+        qDebug() << "Commande recue étalonnage" << commandeRecue;
+        if (commandeRecue == "TCAX\r\n") {
+            qDebug() << "Mettre première bouteille";
+            labelInstruction->setText("Mettre bouteille sur distributeur N°1");
+
         }
-        // Sinon on ignore le message
+        else if (commandeRecue == "TPAX\r\n") {
+            qDebug() << "Mettre première bouteille";
+            labelInstruction->setText("Patienter...étalonnage en cours");
+
+        }
+        else if (commandeRecue == "TCBX\r\n") {
+            qDebug() << "Mettre deuxième bouteille";
+            labelInstruction->setText("Mettre bouteille sur distributeur N°2");
+        }
+
+        else if (commandeRecue == "TCCX\r\n") {
+            qDebug() << "Mettre troisième bouteille";
+            labelInstruction->setText("Mettre bouteille sur distributeur N°3");
+        }
+        commandeRecue="";//Reinitialisation de la variable.
     }
+
 }
-
-
+/*
 QString PageEtalo::decodeMessage(const QString &msg)
 {
     if (msg == "TETX") {
         return "Mettre la première bouteille pour étalonnage";
+
     }
     else if (msg == "TSAX") return "Mode Semi Auto";
     else if (msg == "TMAX") return "Mode Manuel";
@@ -67,3 +71,4 @@ QString PageEtalo::decodeMessage(const QString &msg)
 
     return "Instruction inconnue : " + msg;
 }
+*/

@@ -49,7 +49,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Manuel</string>
+     <string>MANUEL</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pb_semiauto">
@@ -68,7 +68,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Semi-Auto</string>
+     <string>SEMI-AUTO</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pb_auto">
@@ -87,7 +87,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Automatique</string>
+     <string>AUTOMATIQUE</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pb_2pompes">

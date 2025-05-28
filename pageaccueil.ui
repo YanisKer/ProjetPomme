@@ -25,12 +25,12 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>19</pointsize>
+      <pointsize>25</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>Reprendre pressée</string>
+     <string>REPRENDRE PRESSÉE</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -44,12 +44,12 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>19</pointsize>
+      <pointsize>25</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>Nouvelle pressée</string>
+     <string>NOUVELLE PRESSÉE</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
