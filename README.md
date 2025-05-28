@@ -1,6 +1,6 @@
 # ProjetPomme
-GitHub du Projet Pomme du Lycée Vauban, c'est le vrai, genre c'est pas un faux.
+GitHub du Projet Pomme du Lycée Vauban.
 
+#Pourquoi GitHub ?
 Ici, nous déposons les différents fichiers et codes.
-Six commits ont déjà eu lieu.
-Le programme est dans une avancée correcte, et la liaison série est en cours.
+Le programme touche à sa fin, et la liaison série entre la Raspberry Pi et l'Arduino, est en cours de finalisation.
