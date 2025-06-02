@@ -907,6 +907,7 @@ moc_pageaccueil.cpp: ../../pageaccueil.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
 		../../pagepressee.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		moc_predefs.h \
 		../../../Qt/5.15.0/gcc_64/bin/moc
 	/home/ciel_user/Qt/5.15.0/gcc_64/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/build/Desktop_Qt_5_15_0_GCC_64bit-Debug/moc_predefs.h -I/home/ciel_user/Qt/5.15.0/gcc_64/mkspecs/linux-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/Qt/5.15.0/gcc_64/include -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtWidgets -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtGui -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtSerialPort -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtCore -I. -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include ../../pageaccueil.h -o moc_pageaccueil.cpp
@@ -1574,6 +1575,7 @@ moc_pagepressee.cpp: ../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		moc_predefs.h \
 		../../../Qt/5.15.0/gcc_64/bin/moc
 	/home/ciel_user/Qt/5.15.0/gcc_64/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/build/Desktop_Qt_5_15_0_GCC_64bit-Debug/moc_predefs.h -I/home/ciel_user/Qt/5.15.0/gcc_64/mkspecs/linux-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/Qt/5.15.0/gcc_64/include -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtWidgets -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtGui -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtSerialPort -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtCore -I. -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include ../../pagepressee.h -o moc_pagepressee.cpp
@@ -1801,7 +1803,8 @@ main.o: ../../main.cpp ../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication 
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
 		../../pageaccueil.h \
-		../../pagepressee.h
+		../../pagepressee.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 pageaccueil.o: ../../pageaccueil.cpp ../../pageaccueil.h \
@@ -1912,6 +1915,7 @@ pageaccueil.o: ../../pageaccueil.cpp ../../pageaccueil.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
 		../../pagepressee.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		ui_pageaccueil.h \
 		../../ComSerie.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QObject \
@@ -2376,6 +2380,7 @@ pagemodeetpompe.o: ../../pagemodeetpompe.cpp ../../pagemodeetpompe.h \
 		../../pagenettoyage.h \
 		ui_pagemodeetpompe.h \
 		../../pagepressee.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
@@ -2610,6 +2615,7 @@ pagepressee.o: ../../pagepressee.cpp ../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		ui_pagepressee.h \
 		../../pageaccueil.h \
 		../../pagemodeetpompe.h \
@@ -2619,7 +2625,10 @@ pagepressee.o: ../../pagepressee.cpp ../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialport.h \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialportglobal.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qbuttongroup.h
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/QDesktopServices \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qdesktopservices.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstandardpaths.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagepressee.o ../../pagepressee.cpp
 
 ComSerie.o: ../../ComSerie.cpp ../../ComSerie.h \

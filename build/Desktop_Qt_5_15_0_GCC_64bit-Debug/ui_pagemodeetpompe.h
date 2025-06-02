@@ -83,14 +83,14 @@ public:
         pb_5pompes->setFont(font);
         pb_continuer = new QPushButton(centralwidget);
         pb_continuer->setObjectName(QString::fromUtf8("pb_continuer"));
-        pb_continuer->setGeometry(QRect(350, 320, 431, 111));
+        pb_continuer->setGeometry(QRect(410, 320, 371, 111));
         QFont font2;
         font2.setPointSize(20);
         font2.setBold(true);
         pb_continuer->setFont(font2);
         pushButton_3 = new QPushButton(centralwidget);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(20, 320, 321, 111));
+        pushButton_3->setGeometry(QRect(20, 320, 371, 111));
         pushButton_3->setFont(font2);
         PageModeEtPompe->setCentralWidget(centralwidget);
         menubar = new QMenuBar(PageModeEtPompe);

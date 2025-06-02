@@ -169,9 +169,9 @@
    <widget class="QPushButton" name="pb_continuer">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>410</x>
       <y>320</y>
-      <width>431</width>
+      <width>371</width>
       <height>111</height>
      </rect>
     </property>
@@ -190,7 +190,7 @@
      <rect>
       <x>20</x>
       <y>320</y>
-      <width>321</width>
+      <width>371</width>
       <height>111</height>
      </rect>
     </property>

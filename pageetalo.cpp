@@ -3,19 +3,20 @@
 #include <QLabel>
 #include "ComSerie.h"
 #include <QDebug>
-PageEtalo::PageEtalo(QWidget *parent)
+PageEtalo::PageEtalo(QWidget *parent) // Constructeur de la classe PageEtalo
     : QWidget(parent),
     serial(new QSerialPort(this)),
     labelInstruction(new QLabel("En attente de l'instruction...", this))
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(labelInstruction);
-    labelInstruction->setStyleSheet("font-size: 27pt; font-weight: bold;");
+    labelInstruction->setStyleSheet("font-size: 27pt; font-weight: bold;"); // Applique un style au label (grosse police et gras)
+
     labelInstruction->setAlignment(Qt::AlignCenter);
 
     ComSerie::getInstance()->envoyerCommande("TETX");
-    connect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageEtalo::traiterDonnees_etalo);
-    commandeRecue="";
+    connect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageEtalo::traiterDonnees_etalo); // Connecte le signal "dataRecu" au slot "traiterDonnees_etalo"
+    commandeRecue=""; // Initialise la chaîne de caractères utilisée pour stocker une commande reçue
 }
 
 
