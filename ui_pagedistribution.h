@@ -35,6 +35,7 @@ public:
     QLabel *label_6;
     QPushButton *pushButton;
     QLCDNumber *lcdNumber;
+    QLabel *label_7;
 
     void setupUi(QWidget *pagedistribution)
     {
@@ -81,6 +82,9 @@ public:
         frame_3 = new QFrame(pagedistribution);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
         frame_3->setGeometry(QRect(340, 110, 141, 131));
+        QFont font2;
+        font2.setPointSize(11);
+        frame_3->setFont(font2);
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
         label_5 = new QLabel(frame_3);
@@ -99,13 +103,17 @@ public:
         pushButton = new QPushButton(pagedistribution);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(20, 350, 761, 101));
-        QFont font2;
-        font2.setPointSize(18);
-        font2.setBold(true);
-        pushButton->setFont(font2);
+        QFont font3;
+        font3.setPointSize(18);
+        font3.setBold(true);
+        pushButton->setFont(font3);
         lcdNumber = new QLCDNumber(pagedistribution);
         lcdNumber->setObjectName(QString::fromUtf8("lcdNumber"));
-        lcdNumber->setGeometry(QRect(20, 250, 301, 81));
+        lcdNumber->setGeometry(QRect(500, 250, 281, 81));
+        label_7 = new QLabel(pagedistribution);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(20, 210, 511, 161));
+        label_7->setFont(font3);
 
         retranslateUi(pagedistribution);
 
@@ -122,6 +130,7 @@ public:
         label_5->setText(QCoreApplication::translate("pagedistribution", "3", nullptr));
         label_6->setText(QCoreApplication::translate("pagedistribution", "5", nullptr));
         pushButton->setText(QCoreApplication::translate("pagedistribution", "FIN DISTRIBUTION", nullptr));
+        label_7->setText(QCoreApplication::translate("pagedistribution", "NOMBRE DE BOUTEILLES DISTRIBU\303\211ES :", nullptr));
     } // retranslateUi
 
 };

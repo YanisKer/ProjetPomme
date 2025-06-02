@@ -2,6 +2,10 @@
 #include "ui_pagepressee.h"
 #include "pageaccueil.h"
 #include "pagemodeetpompe.h"
+#include <QUrl>
+#include <QDesktopServices> // pour ouvrir une URL dans le navigateur
+
+
 
 PagePressee::PagePressee(QWidget *parent)
     : QMainWindow(parent)
@@ -34,5 +38,12 @@ void PagePressee::on_pushButton_3_clicked()
     pageAccueil->show();
     this->hide();
     return;
+}
+
+
+void PagePressee::on_pushButton_clicked()
+{
+    QUrl url("https://youtu.be/dQw4w9WgXcQ?si=ViJY-XH51jAqsKjo");
+    QDesktopServices::openUrl(url);
 }
 

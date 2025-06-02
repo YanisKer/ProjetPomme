@@ -57,7 +57,6 @@ SOURCES       = main.cpp \
 		pagedistribution.cpp \
 		pageerreurselec.cpp \
 		pageetalo.cpp \
-		pageetaloretirer.cpp \
 		pagemodeetpompe.cpp \
 		pagenettoyage.cpp \
 		pagepressee.cpp \
@@ -65,7 +64,6 @@ SOURCES       = main.cpp \
 		moc_pagedistribution.cpp \
 		moc_pageerreurselec.cpp \
 		moc_pageetalo.cpp \
-		moc_pageetaloretirer.cpp \
 		moc_pagemodeetpompe.cpp \
 		moc_pagenettoyage.cpp \
 		moc_pagepressee.cpp \
@@ -75,7 +73,6 @@ OBJECTS       = main.o \
 		pagedistribution.o \
 		pageerreurselec.o \
 		pageetalo.o \
-		pageetaloretirer.o \
 		pagemodeetpompe.o \
 		pagenettoyage.o \
 		pagepressee.o \
@@ -84,7 +81,6 @@ OBJECTS       = main.o \
 		moc_pagedistribution.o \
 		moc_pageerreurselec.o \
 		moc_pageetalo.o \
-		moc_pageetaloretirer.o \
 		moc_pagemodeetpompe.o \
 		moc_pagenettoyage.o \
 		moc_pagepressee.o \
@@ -289,7 +285,6 @@ DIST          = ../rpi/qt5.15/mkspecs/features/spec_pre.prf \
 		pagedistribution.h \
 		pageerreurselec.h \
 		pageetalo.h \
-		pageetaloretirer.h \
 		pagemodeetpompe.h \
 		pagenettoyage.h \
 		pagepressee.h \
@@ -298,7 +293,6 @@ DIST          = ../rpi/qt5.15/mkspecs/features/spec_pre.prf \
 		pagedistribution.cpp \
 		pageerreurselec.cpp \
 		pageetalo.cpp \
-		pageetaloretirer.cpp \
 		pagemodeetpompe.cpp \
 		pagenettoyage.cpp \
 		pagepressee.cpp \
@@ -311,7 +305,7 @@ TARGET        = demo_cc_pi3
 first: all
 ####### Build rules
 
-demo_cc_pi3: ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pageetaloretirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h $(OBJECTS)  
+demo_cc_pi3: ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: demo_cc_pi3.pro ../rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++/qmake.conf ../rpi/qt5.15/mkspecs/features/spec_pre.prf \
@@ -724,9 +718,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../rpi/qt5.15/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents pageaccueil.h pagedistribution.h pageerreurselec.h pageetalo.h pageetaloretirer.h pagemodeetpompe.h pagenettoyage.h pagepressee.h ComSerie.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp pageaccueil.cpp pagedistribution.cpp pageerreurselec.cpp pageetalo.cpp pageetaloretirer.cpp pagemodeetpompe.cpp pagenettoyage.cpp pagepressee.cpp ComSerie.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents pageaccueil.ui pagedistribution.ui pageerreurselec.ui pageetalonnageRetirer.ui pageetaloretirer.ui pagemodeetpompe.ui pagenettoyage.ui pagepressee.ui $(DISTDIR)/
+	$(COPY_FILE) --parents pageaccueil.h pagedistribution.h pageerreurselec.h pageetalo.h pagemodeetpompe.h pagenettoyage.h pagepressee.h ComSerie.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp pageaccueil.cpp pagedistribution.cpp pageerreurselec.cpp pageetalo.cpp pagemodeetpompe.cpp pagenettoyage.cpp pagepressee.cpp ComSerie.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents pageaccueil.ui pagedistribution.ui pageerreurselec.ui pageetalonnageRetirer.ui pagemodeetpompe.ui pagenettoyage.ui pagepressee.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -758,9 +752,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../rpi/qt5.15/mkspecs/features/data/dummy.cpp
 	/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ -march=armv8-a -mtune=cortex-a72 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard --sysroot=/home/ciel_user/rpi/sysroot -O2 -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h ../rpi/qt5.15/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pageetaloretirer.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
+compiler_moc_header_make_all: moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pageetaloretirer.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
+	-$(DEL_FILE) moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
 moc_pageaccueil.cpp: pageaccueil.h \
 		../rpi/qt5.15/include/QtWidgets/QMainWindow \
 		../rpi/qt5.15/include/QtWidgets/qmainwindow.h \
@@ -1200,114 +1194,6 @@ moc_pageetalo.cpp: pageetalo.h \
 		../rpi/qt5.15/bin/moc
 	/home/ciel_user/rpi/qt5.15/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/moc_predefs.h -I/home/ciel_user/rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/rpi/qt5.15/include -I/home/ciel_user/rpi/qt5.15/include/QtWidgets -I/home/ciel_user/rpi/qt5.15/include/QtGui -I/home/ciel_user/rpi/qt5.15/include/QtSerialPort -I/home/ciel_user/rpi/qt5.15/include/QtCore -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include pageetalo.h -o moc_pageetalo.cpp
 
-moc_pageetaloretirer.cpp: pageetaloretirer.h \
-		../rpi/qt5.15/include/QtWidgets/QWidget \
-		../rpi/qt5.15/include/QtWidgets/qwidget.h \
-		../rpi/qt5.15/include/QtWidgets/qtwidgetsglobal.h \
-		../rpi/qt5.15/include/QtGui/qtguiglobal.h \
-		../rpi/qt5.15/include/QtCore/qglobal.h \
-		../rpi/qt5.15/include/QtCore/qconfig-bootstrapped.h \
-		../rpi/qt5.15/include/QtCore/qconfig.h \
-		../rpi/qt5.15/include/QtCore/qtcore-config.h \
-		../rpi/qt5.15/include/QtCore/qsystemdetection.h \
-		../rpi/qt5.15/include/QtCore/qprocessordetection.h \
-		../rpi/qt5.15/include/QtCore/qcompilerdetection.h \
-		../rpi/qt5.15/include/QtCore/qtypeinfo.h \
-		../rpi/qt5.15/include/QtCore/qsysinfo.h \
-		../rpi/qt5.15/include/QtCore/qlogging.h \
-		../rpi/qt5.15/include/QtCore/qflags.h \
-		../rpi/qt5.15/include/QtCore/qatomic.h \
-		../rpi/qt5.15/include/QtCore/qbasicatomic.h \
-		../rpi/qt5.15/include/QtCore/qatomic_bootstrap.h \
-		../rpi/qt5.15/include/QtCore/qgenericatomic.h \
-		../rpi/qt5.15/include/QtCore/qatomic_cxx11.h \
-		../rpi/qt5.15/include/QtCore/qatomic_msvc.h \
-		../rpi/qt5.15/include/QtCore/qglobalstatic.h \
-		../rpi/qt5.15/include/QtCore/qmutex.h \
-		../rpi/qt5.15/include/QtCore/qnumeric.h \
-		../rpi/qt5.15/include/QtCore/qversiontagging.h \
-		../rpi/qt5.15/include/QtGui/qtgui-config.h \
-		../rpi/qt5.15/include/QtWidgets/qtwidgets-config.h \
-		../rpi/qt5.15/include/QtGui/qwindowdefs.h \
-		../rpi/qt5.15/include/QtCore/qobjectdefs.h \
-		../rpi/qt5.15/include/QtCore/qnamespace.h \
-		../rpi/qt5.15/include/QtCore/qobjectdefs_impl.h \
-		../rpi/qt5.15/include/QtGui/qwindowdefs_win.h \
-		../rpi/qt5.15/include/QtCore/qobject.h \
-		../rpi/qt5.15/include/QtCore/qstring.h \
-		../rpi/qt5.15/include/QtCore/qchar.h \
-		../rpi/qt5.15/include/QtCore/qbytearray.h \
-		../rpi/qt5.15/include/QtCore/qrefcount.h \
-		../rpi/qt5.15/include/QtCore/qarraydata.h \
-		../rpi/qt5.15/include/QtCore/qstringliteral.h \
-		../rpi/qt5.15/include/QtCore/qstringalgorithms.h \
-		../rpi/qt5.15/include/QtCore/qstringview.h \
-		../rpi/qt5.15/include/QtCore/qstringbuilder.h \
-		../rpi/qt5.15/include/QtCore/qlist.h \
-		../rpi/qt5.15/include/QtCore/qalgorithms.h \
-		../rpi/qt5.15/include/QtCore/qiterator.h \
-		../rpi/qt5.15/include/QtCore/qhashfunctions.h \
-		../rpi/qt5.15/include/QtCore/qpair.h \
-		../rpi/qt5.15/include/QtCore/qvector.h \
-		../rpi/qt5.15/include/QtCore/qcontainertools_impl.h \
-		../rpi/qt5.15/include/QtCore/qpoint.h \
-		../rpi/qt5.15/include/QtCore/qbytearraylist.h \
-		../rpi/qt5.15/include/QtCore/qstringlist.h \
-		../rpi/qt5.15/include/QtCore/qregexp.h \
-		../rpi/qt5.15/include/QtCore/qstringmatcher.h \
-		../rpi/qt5.15/include/QtCore/qcoreevent.h \
-		../rpi/qt5.15/include/QtCore/qscopedpointer.h \
-		../rpi/qt5.15/include/QtCore/qmetatype.h \
-		../rpi/qt5.15/include/QtCore/qvarlengtharray.h \
-		../rpi/qt5.15/include/QtCore/qcontainerfwd.h \
-		../rpi/qt5.15/include/QtCore/qobject_impl.h \
-		../rpi/qt5.15/include/QtCore/qmargins.h \
-		../rpi/qt5.15/include/QtGui/qpaintdevice.h \
-		../rpi/qt5.15/include/QtCore/qrect.h \
-		../rpi/qt5.15/include/QtCore/qsize.h \
-		../rpi/qt5.15/include/QtGui/qpalette.h \
-		../rpi/qt5.15/include/QtGui/qcolor.h \
-		../rpi/qt5.15/include/QtGui/qrgb.h \
-		../rpi/qt5.15/include/QtGui/qrgba64.h \
-		../rpi/qt5.15/include/QtGui/qbrush.h \
-		../rpi/qt5.15/include/QtGui/qmatrix.h \
-		../rpi/qt5.15/include/QtGui/qpolygon.h \
-		../rpi/qt5.15/include/QtGui/qregion.h \
-		../rpi/qt5.15/include/QtCore/qdatastream.h \
-		../rpi/qt5.15/include/QtCore/qiodevice.h \
-		../rpi/qt5.15/include/QtCore/qline.h \
-		../rpi/qt5.15/include/QtGui/qtransform.h \
-		../rpi/qt5.15/include/QtGui/qimage.h \
-		../rpi/qt5.15/include/QtGui/qpixelformat.h \
-		../rpi/qt5.15/include/QtGui/qpixmap.h \
-		../rpi/qt5.15/include/QtCore/qsharedpointer.h \
-		../rpi/qt5.15/include/QtCore/qshareddata.h \
-		../rpi/qt5.15/include/QtCore/qhash.h \
-		../rpi/qt5.15/include/QtCore/qsharedpointer_impl.h \
-		../rpi/qt5.15/include/QtGui/qfont.h \
-		../rpi/qt5.15/include/QtGui/qfontmetrics.h \
-		../rpi/qt5.15/include/QtGui/qfontinfo.h \
-		../rpi/qt5.15/include/QtWidgets/qsizepolicy.h \
-		../rpi/qt5.15/include/QtGui/qcursor.h \
-		../rpi/qt5.15/include/QtGui/qkeysequence.h \
-		../rpi/qt5.15/include/QtGui/qevent.h \
-		../rpi/qt5.15/include/QtCore/qvariant.h \
-		../rpi/qt5.15/include/QtCore/qmap.h \
-		../rpi/qt5.15/include/QtCore/qdebug.h \
-		../rpi/qt5.15/include/QtCore/qtextstream.h \
-		../rpi/qt5.15/include/QtCore/qlocale.h \
-		../rpi/qt5.15/include/QtCore/qset.h \
-		../rpi/qt5.15/include/QtCore/qcontiguouscache.h \
-		../rpi/qt5.15/include/QtCore/qurl.h \
-		../rpi/qt5.15/include/QtCore/qurlquery.h \
-		../rpi/qt5.15/include/QtCore/qfile.h \
-		../rpi/qt5.15/include/QtCore/qfiledevice.h \
-		../rpi/qt5.15/include/QtGui/qvector2d.h \
-		../rpi/qt5.15/include/QtGui/qtouchdevice.h \
-		moc_predefs.h \
-		../rpi/qt5.15/bin/moc
-	/home/ciel_user/rpi/qt5.15/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/moc_predefs.h -I/home/ciel_user/rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/rpi/qt5.15/include -I/home/ciel_user/rpi/qt5.15/include/QtWidgets -I/home/ciel_user/rpi/qt5.15/include/QtGui -I/home/ciel_user/rpi/qt5.15/include/QtSerialPort -I/home/ciel_user/rpi/qt5.15/include/QtCore -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include pageetaloretirer.h -o moc_pageetaloretirer.cpp
-
 moc_pagemodeetpompe.cpp: pagemodeetpompe.h \
 		pageetalo.h \
 		../rpi/qt5.15/include/QtWidgets/QWidget \
@@ -1716,9 +1602,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pageetaloretirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
+compiler_uic_make_all: ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pageetaloretirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
+	-$(DEL_FILE) ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
 ui_pageaccueil.h: pageaccueil.ui \
 		../rpi/qt5.15/bin/uic
 	/home/ciel_user/rpi/qt5.15/bin/uic pageaccueil.ui -o ui_pageaccueil.h
@@ -1734,10 +1620,6 @@ ui_pageerreurselec.h: pageerreurselec.ui \
 ui_pageetalonnageRetirer.h: pageetalonnageRetirer.ui \
 		../rpi/qt5.15/bin/uic
 	/home/ciel_user/rpi/qt5.15/bin/uic pageetalonnageRetirer.ui -o ui_pageetalonnageRetirer.h
-
-ui_pageetaloretirer.h: pageetaloretirer.ui \
-		../rpi/qt5.15/bin/uic
-	/home/ciel_user/rpi/qt5.15/bin/uic pageetaloretirer.ui -o ui_pageetaloretirer.h
 
 ui_pagemodeetpompe.h: pagemodeetpompe.ui \
 		../rpi/qt5.15/bin/uic
@@ -2388,124 +2270,6 @@ pageetalo.o: pageetalo.cpp pageetalo.h \
 		../rpi/qt5.15/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageetalo.o pageetalo.cpp
 
-pageetaloretirer.o: pageetaloretirer.cpp pageetaloretirer.h \
-		../rpi/qt5.15/include/QtWidgets/QWidget \
-		../rpi/qt5.15/include/QtWidgets/qwidget.h \
-		../rpi/qt5.15/include/QtWidgets/qtwidgetsglobal.h \
-		../rpi/qt5.15/include/QtGui/qtguiglobal.h \
-		../rpi/qt5.15/include/QtCore/qglobal.h \
-		../rpi/qt5.15/include/QtCore/qconfig-bootstrapped.h \
-		../rpi/qt5.15/include/QtCore/qconfig.h \
-		../rpi/qt5.15/include/QtCore/qtcore-config.h \
-		../rpi/qt5.15/include/QtCore/qsystemdetection.h \
-		../rpi/qt5.15/include/QtCore/qprocessordetection.h \
-		../rpi/qt5.15/include/QtCore/qcompilerdetection.h \
-		../rpi/qt5.15/include/QtCore/qtypeinfo.h \
-		../rpi/qt5.15/include/QtCore/qsysinfo.h \
-		../rpi/qt5.15/include/QtCore/qlogging.h \
-		../rpi/qt5.15/include/QtCore/qflags.h \
-		../rpi/qt5.15/include/QtCore/qatomic.h \
-		../rpi/qt5.15/include/QtCore/qbasicatomic.h \
-		../rpi/qt5.15/include/QtCore/qatomic_bootstrap.h \
-		../rpi/qt5.15/include/QtCore/qgenericatomic.h \
-		../rpi/qt5.15/include/QtCore/qatomic_cxx11.h \
-		../rpi/qt5.15/include/QtCore/qatomic_msvc.h \
-		../rpi/qt5.15/include/QtCore/qglobalstatic.h \
-		../rpi/qt5.15/include/QtCore/qmutex.h \
-		../rpi/qt5.15/include/QtCore/qnumeric.h \
-		../rpi/qt5.15/include/QtCore/qversiontagging.h \
-		../rpi/qt5.15/include/QtGui/qtgui-config.h \
-		../rpi/qt5.15/include/QtWidgets/qtwidgets-config.h \
-		../rpi/qt5.15/include/QtGui/qwindowdefs.h \
-		../rpi/qt5.15/include/QtCore/qobjectdefs.h \
-		../rpi/qt5.15/include/QtCore/qnamespace.h \
-		../rpi/qt5.15/include/QtCore/qobjectdefs_impl.h \
-		../rpi/qt5.15/include/QtGui/qwindowdefs_win.h \
-		../rpi/qt5.15/include/QtCore/qobject.h \
-		../rpi/qt5.15/include/QtCore/qstring.h \
-		../rpi/qt5.15/include/QtCore/qchar.h \
-		../rpi/qt5.15/include/QtCore/qbytearray.h \
-		../rpi/qt5.15/include/QtCore/qrefcount.h \
-		../rpi/qt5.15/include/QtCore/qarraydata.h \
-		../rpi/qt5.15/include/QtCore/qstringliteral.h \
-		../rpi/qt5.15/include/QtCore/qstringalgorithms.h \
-		../rpi/qt5.15/include/QtCore/qstringview.h \
-		../rpi/qt5.15/include/QtCore/qstringbuilder.h \
-		../rpi/qt5.15/include/QtCore/qlist.h \
-		../rpi/qt5.15/include/QtCore/qalgorithms.h \
-		../rpi/qt5.15/include/QtCore/qiterator.h \
-		../rpi/qt5.15/include/QtCore/qhashfunctions.h \
-		../rpi/qt5.15/include/QtCore/qpair.h \
-		../rpi/qt5.15/include/QtCore/qvector.h \
-		../rpi/qt5.15/include/QtCore/qcontainertools_impl.h \
-		../rpi/qt5.15/include/QtCore/qpoint.h \
-		../rpi/qt5.15/include/QtCore/qbytearraylist.h \
-		../rpi/qt5.15/include/QtCore/qstringlist.h \
-		../rpi/qt5.15/include/QtCore/qregexp.h \
-		../rpi/qt5.15/include/QtCore/qstringmatcher.h \
-		../rpi/qt5.15/include/QtCore/qcoreevent.h \
-		../rpi/qt5.15/include/QtCore/qscopedpointer.h \
-		../rpi/qt5.15/include/QtCore/qmetatype.h \
-		../rpi/qt5.15/include/QtCore/qvarlengtharray.h \
-		../rpi/qt5.15/include/QtCore/qcontainerfwd.h \
-		../rpi/qt5.15/include/QtCore/qobject_impl.h \
-		../rpi/qt5.15/include/QtCore/qmargins.h \
-		../rpi/qt5.15/include/QtGui/qpaintdevice.h \
-		../rpi/qt5.15/include/QtCore/qrect.h \
-		../rpi/qt5.15/include/QtCore/qsize.h \
-		../rpi/qt5.15/include/QtGui/qpalette.h \
-		../rpi/qt5.15/include/QtGui/qcolor.h \
-		../rpi/qt5.15/include/QtGui/qrgb.h \
-		../rpi/qt5.15/include/QtGui/qrgba64.h \
-		../rpi/qt5.15/include/QtGui/qbrush.h \
-		../rpi/qt5.15/include/QtGui/qmatrix.h \
-		../rpi/qt5.15/include/QtGui/qpolygon.h \
-		../rpi/qt5.15/include/QtGui/qregion.h \
-		../rpi/qt5.15/include/QtCore/qdatastream.h \
-		../rpi/qt5.15/include/QtCore/qiodevice.h \
-		../rpi/qt5.15/include/QtCore/qline.h \
-		../rpi/qt5.15/include/QtGui/qtransform.h \
-		../rpi/qt5.15/include/QtGui/qimage.h \
-		../rpi/qt5.15/include/QtGui/qpixelformat.h \
-		../rpi/qt5.15/include/QtGui/qpixmap.h \
-		../rpi/qt5.15/include/QtCore/qsharedpointer.h \
-		../rpi/qt5.15/include/QtCore/qshareddata.h \
-		../rpi/qt5.15/include/QtCore/qhash.h \
-		../rpi/qt5.15/include/QtCore/qsharedpointer_impl.h \
-		../rpi/qt5.15/include/QtGui/qfont.h \
-		../rpi/qt5.15/include/QtGui/qfontmetrics.h \
-		../rpi/qt5.15/include/QtGui/qfontinfo.h \
-		../rpi/qt5.15/include/QtWidgets/qsizepolicy.h \
-		../rpi/qt5.15/include/QtGui/qcursor.h \
-		../rpi/qt5.15/include/QtGui/qkeysequence.h \
-		../rpi/qt5.15/include/QtGui/qevent.h \
-		../rpi/qt5.15/include/QtCore/qvariant.h \
-		../rpi/qt5.15/include/QtCore/qmap.h \
-		../rpi/qt5.15/include/QtCore/qdebug.h \
-		../rpi/qt5.15/include/QtCore/qtextstream.h \
-		../rpi/qt5.15/include/QtCore/qlocale.h \
-		../rpi/qt5.15/include/QtCore/qset.h \
-		../rpi/qt5.15/include/QtCore/qcontiguouscache.h \
-		../rpi/qt5.15/include/QtCore/qurl.h \
-		../rpi/qt5.15/include/QtCore/qurlquery.h \
-		../rpi/qt5.15/include/QtCore/qfile.h \
-		../rpi/qt5.15/include/QtCore/qfiledevice.h \
-		../rpi/qt5.15/include/QtGui/qvector2d.h \
-		../rpi/qt5.15/include/QtGui/qtouchdevice.h \
-		ui_pageetaloretirer.h \
-		../rpi/qt5.15/include/QtCore/QVariant \
-		../rpi/qt5.15/include/QtWidgets/QApplication \
-		../rpi/qt5.15/include/QtWidgets/qapplication.h \
-		../rpi/qt5.15/include/QtCore/qcoreapplication.h \
-		../rpi/qt5.15/include/QtCore/qeventloop.h \
-		../rpi/qt5.15/include/QtWidgets/qdesktopwidget.h \
-		../rpi/qt5.15/include/QtGui/qguiapplication.h \
-		../rpi/qt5.15/include/QtGui/qinputmethod.h \
-		../rpi/qt5.15/include/QtWidgets/QLabel \
-		../rpi/qt5.15/include/QtWidgets/qlabel.h \
-		../rpi/qt5.15/include/QtWidgets/qframe.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageetaloretirer.o pageetaloretirer.cpp
-
 pagemodeetpompe.o: pagemodeetpompe.cpp pagemodeetpompe.h \
 		pageetalo.h \
 		../rpi/qt5.15/include/QtWidgets/QWidget \
@@ -3040,9 +2804,6 @@ moc_pageerreurselec.o: moc_pageerreurselec.cpp
 
 moc_pageetalo.o: moc_pageetalo.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pageetalo.o moc_pageetalo.cpp
-
-moc_pageetaloretirer.o: moc_pageetaloretirer.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pageetaloretirer.o moc_pageetaloretirer.cpp
 
 moc_pagemodeetpompe.o: moc_pagemodeetpompe.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pagemodeetpompe.o moc_pagemodeetpompe.cpp

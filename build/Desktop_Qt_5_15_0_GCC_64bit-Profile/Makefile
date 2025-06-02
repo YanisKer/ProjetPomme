@@ -57,7 +57,6 @@ SOURCES       = ../../main.cpp \
 		../../pagedistribution.cpp \
 		../../pageerreurselec.cpp \
 		../../pageetalo.cpp \
-		../../pageetaloretirer.cpp \
 		../../pagemodeetpompe.cpp \
 		../../pagenettoyage.cpp \
 		../../pagepressee.cpp \
@@ -65,7 +64,6 @@ SOURCES       = ../../main.cpp \
 		moc_pagedistribution.cpp \
 		moc_pageerreurselec.cpp \
 		moc_pageetalo.cpp \
-		moc_pageetaloretirer.cpp \
 		moc_pagemodeetpompe.cpp \
 		moc_pagenettoyage.cpp \
 		moc_pagepressee.cpp \
@@ -75,7 +73,6 @@ OBJECTS       = main.o \
 		pagedistribution.o \
 		pageerreurselec.o \
 		pageetalo.o \
-		pageetaloretirer.o \
 		pagemodeetpompe.o \
 		pagenettoyage.o \
 		pagepressee.o \
@@ -84,7 +81,6 @@ OBJECTS       = main.o \
 		moc_pagedistribution.o \
 		moc_pageerreurselec.o \
 		moc_pageetalo.o \
-		moc_pageetaloretirer.o \
 		moc_pagemodeetpompe.o \
 		moc_pagenettoyage.o \
 		moc_pagepressee.o \
@@ -307,7 +303,6 @@ DIST          = /Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../pagedistribution.h \
 		../../pageerreurselec.h \
 		../../pageetalo.h \
-		../../pageetaloretirer.h \
 		../../pagemodeetpompe.h \
 		../../pagenettoyage.h \
 		../../pagepressee.h \
@@ -316,7 +311,6 @@ DIST          = /Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../pagedistribution.cpp \
 		../../pageerreurselec.cpp \
 		../../pageetalo.cpp \
-		../../pageetaloretirer.cpp \
 		../../pagemodeetpompe.cpp \
 		../../pagenettoyage.cpp \
 		../../pagepressee.cpp \
@@ -329,7 +323,7 @@ TARGET        = demo_cc_pi3
 first: all
 ####### Build rules
 
-demo_cc_pi3: ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalo.h ui_pageetalonnageRetirer.h ui_pageetaloretirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h $(OBJECTS)  
+demo_cc_pi3: ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 	objcopy --only-keep-debug demo_cc_pi3 demo_cc_pi3.debug && objcopy --strip-debug demo_cc_pi3 && objcopy --add-gnu-debuglink=demo_cc_pi3.debug demo_cc_pi3 && chmod -x demo_cc_pi3.debug
 
@@ -779,9 +773,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.15.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../pageaccueil.h ../../pagedistribution.h ../../pageerreurselec.h ../../pageetalo.h ../../pageetaloretirer.h ../../pagemodeetpompe.h ../../pagenettoyage.h ../../pagepressee.h ../../ComSerie.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../main.cpp ../../pageaccueil.cpp ../../pagedistribution.cpp ../../pageerreurselec.cpp ../../pageetalo.cpp ../../pageetaloretirer.cpp ../../pagemodeetpompe.cpp ../../pagenettoyage.cpp ../../pagepressee.cpp ../../ComSerie.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../pageaccueil.ui ../../pagedistribution.ui ../../pageerreurselec.ui ../../pageetalo.ui ../../pageetalonnageRetirer.ui ../../pageetaloretirer.ui ../../pagemodeetpompe.ui ../../pagenettoyage.ui ../../pagepressee.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../pageaccueil.h ../../pagedistribution.h ../../pageerreurselec.h ../../pageetalo.h ../../pagemodeetpompe.h ../../pagenettoyage.h ../../pagepressee.h ../../ComSerie.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../main.cpp ../../pageaccueil.cpp ../../pagedistribution.cpp ../../pageerreurselec.cpp ../../pageetalo.cpp ../../pagemodeetpompe.cpp ../../pagenettoyage.cpp ../../pagepressee.cpp ../../ComSerie.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../pageaccueil.ui ../../pagedistribution.ui ../../pageerreurselec.ui ../../pageetalonnageRetirer.ui ../../pagemodeetpompe.ui ../../pagenettoyage.ui ../../pagepressee.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -813,9 +807,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt/5.15.0/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -g -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h ../../../Qt/5.15.0/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pageetaloretirer.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
+compiler_moc_header_make_all: moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pageetaloretirer.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
+	-$(DEL_FILE) moc_pageaccueil.cpp moc_pagedistribution.cpp moc_pageerreurselec.cpp moc_pageetalo.cpp moc_pagemodeetpompe.cpp moc_pagenettoyage.cpp moc_pagepressee.cpp moc_ComSerie.cpp
 moc_pageaccueil.cpp: ../../pageaccueil.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMainWindow \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -1255,114 +1249,6 @@ moc_pageetalo.cpp: ../../pageetalo.h \
 		../../../Qt/5.15.0/gcc_64/bin/moc
 	/home/ciel_user/Qt/5.15.0/gcc_64/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/build/Desktop_Qt_5_15_0_GCC_64bit-Profile/moc_predefs.h -I/home/ciel_user/Qt/5.15.0/gcc_64/mkspecs/linux-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/Qt/5.15.0/gcc_64/include -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtWidgets -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtGui -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtSerialPort -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtCore -I. -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include ../../pageetalo.h -o moc_pageetalo.cpp
 
-moc_pageetaloretirer.cpp: ../../pageetaloretirer.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qwidget.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qtgui-config.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qmargins.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qrect.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsize.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpalette.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qcolor.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qrgb.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qrgba64.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qbrush.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qmatrix.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpolygon.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qregion.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qdatastream.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qline.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qtransform.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qimage.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpixelformat.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpixmap.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qfont.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qfontmetrics.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qfontinfo.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qcursor.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qkeysequence.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qevent.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
-		moc_predefs.h \
-		../../../Qt/5.15.0/gcc_64/bin/moc
-	/home/ciel_user/Qt/5.15.0/gcc_64/bin/moc $(DEFINES) --include /home/ciel_user/demo_cc_pi3_2/build/Desktop_Qt_5_15_0_GCC_64bit-Profile/moc_predefs.h -I/home/ciel_user/Qt/5.15.0/gcc_64/mkspecs/linux-g++ -I/home/ciel_user/demo_cc_pi3_2 -I/home/ciel_user/Qt/5.15.0/gcc_64/include -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtWidgets -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtGui -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtSerialPort -I/home/ciel_user/Qt/5.15.0/gcc_64/include/QtCore -I. -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1 -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/arm-linux-gnueabihf -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include/c++/7.4.1/backward -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/7.4.1/include-fixed -I/home/ciel_user/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/include -I/home/ciel_user/rpi/sysroot/usr/include/arm-linux-gnueabihf -I/home/ciel_user/rpi/sysroot/usr/include ../../pageetaloretirer.h -o moc_pageetaloretirer.cpp
-
 moc_pagemodeetpompe.cpp: ../../pagemodeetpompe.h \
 		../../pageetalo.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
@@ -1771,9 +1657,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalo.h ui_pageetalonnageRetirer.h ui_pageetaloretirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
+compiler_uic_make_all: ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalo.h ui_pageetalonnageRetirer.h ui_pageetaloretirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
+	-$(DEL_FILE) ui_pageaccueil.h ui_pagedistribution.h ui_pageerreurselec.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
 ui_pageaccueil.h: ../../pageaccueil.ui \
 		../../../Qt/5.15.0/gcc_64/bin/uic
 	/home/ciel_user/Qt/5.15.0/gcc_64/bin/uic ../../pageaccueil.ui -o ui_pageaccueil.h
@@ -1786,17 +1672,9 @@ ui_pageerreurselec.h: ../../pageerreurselec.ui \
 		../../../Qt/5.15.0/gcc_64/bin/uic
 	/home/ciel_user/Qt/5.15.0/gcc_64/bin/uic ../../pageerreurselec.ui -o ui_pageerreurselec.h
 
-ui_pageetalo.h: ../../pageetalo.ui \
-		../../../Qt/5.15.0/gcc_64/bin/uic
-	/home/ciel_user/Qt/5.15.0/gcc_64/bin/uic ../../pageetalo.ui -o ui_pageetalo.h
-
 ui_pageetalonnageRetirer.h: ../../pageetalonnageRetirer.ui \
 		../../../Qt/5.15.0/gcc_64/bin/uic
 	/home/ciel_user/Qt/5.15.0/gcc_64/bin/uic ../../pageetalonnageRetirer.ui -o ui_pageetalonnageRetirer.h
-
-ui_pageetaloretirer.h: ../../pageetaloretirer.ui \
-		../../../Qt/5.15.0/gcc_64/bin/uic
-	/home/ciel_user/Qt/5.15.0/gcc_64/bin/uic ../../pageetaloretirer.ui -o ui_pageetaloretirer.h
 
 ui_pagemodeetpompe.h: ../../pagemodeetpompe.ui \
 		../../../Qt/5.15.0/gcc_64/bin/uic
@@ -2045,7 +1923,29 @@ pageaccueil.o: ../../pageaccueil.cpp ../../pageaccueil.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
 		../../pagepressee.h \
-		ui_pageaccueil.h \
+		../../ui_pageaccueil.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
 		../../ComSerie.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QObject \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/QSerialPort \
@@ -2160,7 +2060,25 @@ pagedistribution.o: ../../pagedistribution.cpp ../../pagedistribution.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_pagedistribution.h
+		../../ui_pagedistribution.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QFrame \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLCDNumber \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlcdnumber.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagedistribution.o ../../pagedistribution.cpp
 
 pageerreurselec.o: ../../pageerreurselec.cpp ../../pageerreurselec.h \
@@ -2267,7 +2185,22 @@ pageerreurselec.o: ../../pageerreurselec.cpp ../../pageerreurselec.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_pageerreurselec.h
+		../../ui_pageerreurselec.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageerreurselec.o ../../pageerreurselec.cpp
 
 pageetalo.o: ../../pageetalo.cpp ../../pageetalo.h \
@@ -2392,113 +2325,6 @@ pageetalo.o: ../../pageetalo.cpp ../../pageetalo.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageetalo.o ../../pageetalo.cpp
 
-pageetaloretirer.o: ../../pageetaloretirer.cpp ../../pageetaloretirer.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qwidget.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qtgui-config.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qmargins.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qrect.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsize.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpalette.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qcolor.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qrgb.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qrgba64.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qbrush.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qmatrix.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpolygon.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qregion.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qdatastream.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qline.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qtransform.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qimage.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpixelformat.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qpixmap.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qfont.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qfontmetrics.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qfontinfo.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qcursor.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qkeysequence.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qevent.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_pageetaloretirer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageetaloretirer.o ../../pageetaloretirer.cpp
-
 pagemodeetpompe.o: ../../pagemodeetpompe.cpp ../../pagemodeetpompe.h \
 		../../pageetalo.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
@@ -2614,11 +2440,26 @@ pagemodeetpompe.o: ../../pagemodeetpompe.cpp ../../pagemodeetpompe.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QButtonGroup \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qbuttongroup.h \
 		../../pagenettoyage.h \
-		ui_pagemodeetpompe.h \
-		../../pagepressee.h \
+		../../ui_pagemodeetpompe.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMessageBox \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdialog.h \
@@ -2740,7 +2581,19 @@ pagenettoyage.o: ../../pagenettoyage.cpp ../../pagenettoyage.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
-		ui_pagenettoyage.h
+		../../ui_pagenettoyage.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagenettoyage.o ../../pagenettoyage.cpp
 
 pagepressee.o: ../../pagepressee.cpp ../../pagepressee.h \
@@ -2850,11 +2703,29 @@ pagepressee.o: ../../pagepressee.cpp ../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
-		ui_pagepressee.h \
+		../../ui_pagepressee.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
 		../../pageaccueil.h \
 		../../pagemodeetpompe.h \
 		../../pageetalo.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/QSerialPort \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialport.h \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialportglobal.h \
@@ -2933,7 +2804,48 @@ ComSerie.o: ../../ComSerie.cpp ../../ComSerie.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qset.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMessageBox \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qtgui-config.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdialog.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qwidget.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qmargins.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qrect.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qsize.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qpalette.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qcolor.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qrgb.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qrgba64.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qbrush.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qmatrix.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qpolygon.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qregion.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qdatastream.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qline.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qtransform.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qimage.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qpixelformat.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qpixmap.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qfont.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qfontinfo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qcursor.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qkeysequence.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qevent.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qurl.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qurlquery.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qvector2d.h \
+		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ComSerie.o ../../ComSerie.cpp
 
 moc_pageaccueil.o: moc_pageaccueil.cpp 
@@ -2947,9 +2859,6 @@ moc_pageerreurselec.o: moc_pageerreurselec.cpp
 
 moc_pageetalo.o: moc_pageetalo.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pageetalo.o moc_pageetalo.cpp
-
-moc_pageetaloretirer.o: moc_pageetaloretirer.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pageetaloretirer.o moc_pageetaloretirer.cpp
 
 moc_pagemodeetpompe.o: moc_pagemodeetpompe.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pagemodeetpompe.o moc_pagemodeetpompe.cpp

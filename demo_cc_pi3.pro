@@ -1,5 +1,4 @@
-QT       += core gui serialport
-
+QT       += core gui serialport 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -14,7 +13,6 @@ SOURCES += \
     pagedistribution.cpp \
     pageerreurselec.cpp \
     pageetalo.cpp \
-    pageetaloretirer.cpp \
     pagemodeetpompe.cpp \
     pagenettoyage.cpp \
     pagepressee.cpp \
@@ -25,7 +23,6 @@ HEADERS += \
     pagedistribution.h \
     pageerreurselec.h \
     pageetalo.h \
-    pageetaloretirer.h \
     pagemodeetpompe.h \
     pagenettoyage.h \
     pagepressee.h \
@@ -36,7 +33,6 @@ FORMS += \
     pagedistribution.ui \
     pageerreurselec.ui \
     pageetalonnageRetirer.ui \
-    pageetaloretirer.ui \
     pagemodeetpompe.ui \
     pagenettoyage.ui \
     pagepressee.ui

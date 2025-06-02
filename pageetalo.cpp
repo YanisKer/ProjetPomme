@@ -10,7 +10,7 @@ PageEtalo::PageEtalo(QWidget *parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(labelInstruction);
-    labelInstruction->setStyleSheet("font-size: 27pt;");
+    labelInstruction->setStyleSheet("font-size: 27pt; font-weight: bold;");
     labelInstruction->setAlignment(Qt::AlignCenter);
 
     ComSerie::getInstance()->envoyerCommande("TETX");
@@ -33,7 +33,7 @@ void PageEtalo::traiterDonnees_etalo(const QByteArray &data){
         }
         else if (commandeRecue == "TPAX\r\n") {
             qDebug() << "Mettre première bouteille";
-            labelInstruction->setText("Patienter...étalonnage en cours");
+            labelInstruction->setText("Patienter... étalonnage en cours..");
 
         }
         else if (commandeRecue == "TCBX\r\n") {

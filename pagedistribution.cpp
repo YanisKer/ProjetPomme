@@ -1,4 +1,4 @@
-#include "pagedistribution.h"
+ #include "pagedistribution.h"
 #include "ui_pagedistribution.h"
 
 pagedistribution::pagedistribution(QWidget *parent)

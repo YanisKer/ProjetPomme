@@ -2,6 +2,7 @@
 #define PAGEPRESSEE_H
 
 #include <QMainWindow>
+#include <QUrl>
 
 namespace Ui {
 class PagePressee;
@@ -21,8 +22,11 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::PagePressee *ui;
+
 };
 
 #endif // PAGEPRESSEE_H
