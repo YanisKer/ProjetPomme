@@ -23,9 +23,7 @@ class Ui_PagePressee
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,21 +34,13 @@ public:
         PagePressee->resize(800, 480);
         centralwidget = new QWidget(PagePressee);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(250, 20, 531, 191));
-        QFont font;
-        font.setPointSize(25);
-        font.setBold(true);
-        pushButton->setFont(font);
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setGeometry(QRect(250, 220, 531, 211));
+        QFont font;
+        font.setPointSize(25);
+        font.setBold(true);
         pushButton_2->setFont(font);
-        pushButton_3 = new QPushButton(centralwidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(10, 20, 231, 411));
-        pushButton_3->setFont(font);
         PagePressee->setCentralWidget(centralwidget);
         menubar = new QMenuBar(PagePressee);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -68,9 +58,7 @@ public:
     void retranslateUi(QMainWindow *PagePressee)
     {
         PagePressee->setWindowTitle(QCoreApplication::translate("PagePressee", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("PagePressee", "PASTEURISATION", nullptr));
         pushButton_2->setText(QCoreApplication::translate("PagePressee", "MISE EN BOUTEILLE", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("PagePressee", "RETOUR", nullptr));
     } // retranslateUi
 
 };

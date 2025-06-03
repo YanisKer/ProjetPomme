@@ -19,7 +19,7 @@ pagedistribution::pagedistribution(QWidget *parent)
     ComSerie::getInstance()->envoyerCommande("TSAX");
     nbBouteilles=0;
     dataRecues="";
-    ui->pb_FinDistri->setEnabled(false);
+
 }
 
 pagedistribution::~pagedistribution()
@@ -72,27 +72,10 @@ void pagedistribution::traiterDonnees_distri(const QByteArray &data){
                 ui->lcd_nb_bt->display(nbBouteilles);
             }
             if(commande == "TSRDX"){
-                ui->fr_pompe_4->setStyleSheet("background-color: red;");
 
-            }else if (commande == "TSODX"){
-                ui->fr_pompe_4->setStyleSheet("background-color: orange;");
-            }else if (commande == "TSVDX"){
-                ui->fr_pompe_4->setStyleSheet("background-color: green;");
-                nbBouteilles++;
-                ui->lcd_nb_bt->display(nbBouteilles);
+
+
             }
-            if(commande == "TSREX"){
-                ui->fr_pompe_5->setStyleSheet("background-color: red;");
-
-            }else if (commande == "TSOEX"){
-                ui->fr_pompe_5->setStyleSheet("background-color: orange;");
-            }else if (commande == "TSVEX"){
-                ui->fr_pompe_5->setStyleSheet("background-color: green;");
-                nbBouteilles++;
-                ui->lcd_nb_bt->display(nbBouteilles);
-                ui->pb_FinDistri->setEnabled(true);
-            }
-
 
         }
     }

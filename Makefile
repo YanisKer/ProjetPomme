@@ -299,7 +299,7 @@ TARGET        = demo_cc_pi3
 first: all
 ####### Build rules
 
-demo_cc_pi3: ui_pageaccueil.h ui_pagedistribution.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h $(OBJECTS)  
+demo_cc_pi3: ui_pageaccueil.h ui_pagedistribution.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: demo_cc_pi3.pro ../rpi/qt5.15/mkspecs/devices/linux-rasp-pi4-v3d-g++/qmake.conf ../rpi/qt5.15/mkspecs/features/spec_pre.prf \
@@ -714,7 +714,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents ../rpi/qt5.15/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents pageaccueil.h pagedistribution.h pageetalo.h pagemodeetpompe.h pagenettoyage.h pagepressee.h ComSerie.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp pageaccueil.cpp pagedistribution.cpp pageetalo.cpp pagemodeetpompe.cpp pagenettoyage.cpp pagepressee.cpp ComSerie.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents pageaccueil.ui pagedistribution.ui pageetalonnageRetirer.ui pagemodeetpompe.ui pagenettoyage.ui pagepressee.ui $(DISTDIR)/
+	$(COPY_FILE) --parents pageaccueil.ui pagedistribution.ui pagemodeetpompe.ui pagenettoyage.ui pagepressee.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1490,9 +1490,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_pageaccueil.h ui_pagedistribution.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
+compiler_uic_make_all: ui_pageaccueil.h ui_pagedistribution.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_pageaccueil.h ui_pagedistribution.h ui_pageetalonnageRetirer.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
+	-$(DEL_FILE) ui_pageaccueil.h ui_pagedistribution.h ui_pagemodeetpompe.h ui_pagenettoyage.h ui_pagepressee.h
 ui_pageaccueil.h: pageaccueil.ui \
 		../rpi/qt5.15/bin/uic
 	/home/ciel_user/rpi/qt5.15/bin/uic pageaccueil.ui -o ui_pageaccueil.h
@@ -1500,10 +1500,6 @@ ui_pageaccueil.h: pageaccueil.ui \
 ui_pagedistribution.h: pagedistribution.ui \
 		../rpi/qt5.15/bin/uic
 	/home/ciel_user/rpi/qt5.15/bin/uic pagedistribution.ui -o ui_pagedistribution.h
-
-ui_pageetalonnageRetirer.h: pageetalonnageRetirer.ui \
-		../rpi/qt5.15/bin/uic
-	/home/ciel_user/rpi/qt5.15/bin/uic pageetalonnageRetirer.ui -o ui_pageetalonnageRetirer.h
 
 ui_pagemodeetpompe.h: pagemodeetpompe.ui \
 		../rpi/qt5.15/bin/uic
@@ -1893,7 +1889,19 @@ pagedistribution.o: pagedistribution.cpp pagedistribution.h \
 		ComSerie.h \
 		../rpi/qt5.15/include/QtCore/QObject \
 		../rpi/qt5.15/include/QtSerialPort/QSerialPortInfo \
-		../rpi/qt5.15/include/QtSerialPort/qserialportinfo.h
+		../rpi/qt5.15/include/QtSerialPort/qserialportinfo.h \
+		../rpi/qt5.15/include/QtCore/QStandardPaths \
+		../rpi/qt5.15/include/QtCore/qstandardpaths.h \
+		../rpi/qt5.15/include/QtCore/QFile \
+		../rpi/qt5.15/include/QtCore/QTextStream \
+		../rpi/qt5.15/include/QtCore/QDateTime \
+		../rpi/qt5.15/include/QtCore/qdatetime.h \
+		../rpi/qt5.15/include/QtCore/QDir \
+		../rpi/qt5.15/include/QtCore/qdir.h \
+		../rpi/qt5.15/include/QtCore/qfileinfo.h \
+		../rpi/qt5.15/include/QtWidgets/QMessageBox \
+		../rpi/qt5.15/include/QtWidgets/qmessagebox.h \
+		../rpi/qt5.15/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagedistribution.o pagedistribution.cpp
 
 pageetalo.o: pageetalo.cpp pageetalo.h \

@@ -16,33 +16,16 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
 {
     ui->setupUi(this);
     QButtonGroup *modeButtonGroup = new QButtonGroup(this);
-    QButtonGroup *pompeButtonGroup = new QButtonGroup(this);
 
     // Ajout des boutons de mode dans le groupe modeButtonGroup avec des identifiants
 
     modeButtonGroup->addButton(ui->pb_semiauto, 1);
     modeButtonGroup->addButton(ui->pb_auto, 2);
 
-    // Ajout des boutons de pompe dans le groupe pompeButtonGroup avec des identifiants
-    pompeButtonGroup->addButton(ui->pb_1pompe, 1);
-    pompeButtonGroup->addButton(ui->pb_2pompes, 2);
-    pompeButtonGroup->addButton(ui->pb_3pompes, 3);
-    pompeButtonGroup->addButton(ui->pb_4pompes, 4);
-    pompeButtonGroup->addButton(ui->pb_5pompes, 5);
-
     // Active le mode "checkable" (type bouton radio ou à bascule) sur les boutons de mode
 
     ui->pb_semiauto->setCheckable(true);
     ui->pb_auto->setCheckable(true);
-
-    // Active le mode "checkable" sur les boutons de sélection de pompes
-    ui->pb_1pompe->setCheckable(true);
-    ui->pb_2pompes->setCheckable(true);
-    ui->pb_3pompes->setCheckable(true);
-    ui->pb_4pompes->setCheckable(true);
-    ui->pb_5pompes->setCheckable(true);
-
-    ui->pb_5pompes->setChecked(true);
     ui->pb_auto->setChecked(true);
     // Active le mode "checkable" sur les deux autres boutons
 
@@ -54,11 +37,6 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     // Connexions
     connect(ui->pb_semiauto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_auto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
-    connect(ui->pb_1pompe, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
-    connect(ui->pb_2pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
-    connect(ui->pb_3pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
-    connect(ui->pb_4pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
-    connect(ui->pb_5pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
 
     // Connexion correcte au slot CONTINUER
     connect(ui->pb_continuer, &QPushButton::clicked, this, &PageModeEtPompe::on_pb_continuer_clicked);
@@ -79,13 +57,10 @@ void PageModeEtPompe::onButtonClicked(){
     bool modeSelected =  // Le double pipe permet la sélection sans relachement, ainsi il faut sélectionner un des 2 choix
                         ui->pb_semiauto->isChecked() ||
                         ui->pb_auto->isChecked();
-    bool pompeSelected = ui->pb_1pompe->isChecked() ||
-                         ui->pb_2pompes->isChecked() ||
-                         ui->pb_3pompes->isChecked() ||
-                         ui->pb_4pompes->isChecked() ||
-                         ui->pb_5pompes->isChecked();
 
-    ui->pb_continuer->setEnabled(modeSelected && pompeSelected);
+
+
+    ui->pb_continuer->setEnabled(modeSelected);
     qDebug() << "Continuer activé:" << ui->pb_continuer->isEnabled();
 }
 
@@ -94,15 +69,12 @@ PageModeEtPompe::~PageModeEtPompe()
     delete ui;
 }
 
-
 void PageModeEtPompe::on_pb_continuer_clicked()
 {
-
     if (!pageEtalo) {
         pageEtalo = new PageEtalo(); // NE PAS mettre "this" en parent ici
     }
     pageEtalo->setWindowState(Qt::WindowFullScreen);
     pageEtalo->show();
     this->hide();
-
 }

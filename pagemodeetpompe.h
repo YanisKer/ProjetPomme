@@ -25,9 +25,7 @@ private slots:
 private:
     Ui::PageModeEtPompe *ui;
     QButtonGroup *modeButtonGroup;
-    QButtonGroup *pompeButtonGroup;
     int selectedMode;
-    int selectedPompeCount;
     PageEtalo *pageEtalo = nullptr; // Ajout ici
 
 };

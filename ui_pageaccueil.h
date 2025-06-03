@@ -24,7 +24,6 @@ class Ui_PageAccueil
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
     QPushButton *pushButton_2;
     QLabel *label;
     QMenuBar *menubar;
@@ -37,16 +36,12 @@ public:
         PageAccueil->resize(800, 480);
         centralwidget = new QWidget(PageAccueil);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(10, 220, 781, 211));
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(10, 110, 781, 201));
         QFont font;
         font.setPointSize(25);
         font.setBold(true);
-        pushButton->setFont(font);
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(10, 10, 781, 201));
         pushButton_2->setFont(font);
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
@@ -72,7 +67,6 @@ public:
     void retranslateUi(QMainWindow *PageAccueil)
     {
         PageAccueil->setWindowTitle(QCoreApplication::translate("PageAccueil", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("PageAccueil", "REPRENDRE PRESS\303\211E", nullptr));
         pushButton_2->setText(QCoreApplication::translate("PageAccueil", "NOUVELLE PRESS\303\211E", nullptr));
         label->setText(QString());
     } // retranslateUi

@@ -36,8 +36,8 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>110</y>
-     <width>141</width>
+     <y>100</y>
+     <width>251</width>
      <height>131</height>
     </rect>
    </property>
@@ -50,8 +50,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>62</x>
-      <y>59</y>
+      <x>120</x>
+      <y>60</y>
       <width>21</width>
       <height>17</height>
      </rect>
@@ -70,9 +70,9 @@
   <widget class="QFrame" name="fr_pompe_2">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>110</y>
-     <width>141</width>
+     <x>280</x>
+     <y>100</y>
+     <width>251</width>
      <height>131</height>
     </rect>
    </property>
@@ -85,8 +85,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>64</x>
-      <y>59</y>
+      <x>120</x>
+      <y>60</y>
       <width>14</width>
       <height>17</height>
      </rect>
@@ -102,47 +102,12 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="fr_pompe_4">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>110</y>
-     <width>131</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>58</y>
-      <width>20</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>17</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>4</string>
-    </property>
-   </widget>
-  </widget>
   <widget class="QFrame" name="fr_pompe_3">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>110</y>
-     <width>141</width>
+     <x>540</x>
+     <y>100</y>
+     <width>241</width>
      <height>131</height>
     </rect>
    </property>
@@ -160,8 +125,8 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>65</x>
-      <y>59</y>
+      <x>120</x>
+      <y>60</y>
       <width>21</width>
       <height>17</height>
      </rect>
@@ -177,67 +142,13 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="fr_pompe_5">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>110</y>
-     <width>131</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>61</x>
-      <y>58</y>
-      <width>21</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>17</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>5</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QPushButton" name="pb_FinDistri">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>350</y>
-     <width>761</width>
-     <height>101</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>18</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>FIN DISTRIBUTION</string>
-   </property>
-  </widget>
   <widget class="QLCDNumber" name="lcd_nb_bt">
    <property name="geometry">
     <rect>
      <x>500</x>
      <y>250</y>
      <width>281</width>
-     <height>81</height>
+     <height>71</height>
     </rect>
    </property>
   </widget>
@@ -258,6 +169,44 @@
    </property>
    <property name="text">
     <string>NOMBRE DE BOUTEILLES DISTRIBUÉES :</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_FinDistri_2">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>340</y>
+     <width>371</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>FIN DISTRIBUTION</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>340</y>
+     <width>361</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>RELANCER ÉTALONNAGE</string>
    </property>
   </widget>
  </widget>
