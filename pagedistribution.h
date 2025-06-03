@@ -22,7 +22,7 @@ private slots:
 
 private:
     Ui::pagedistribution *ui;
-    QString commandeRecue;
+    QString dataRecues;
     int nbBouteilles;
     void genererCSV();
 };

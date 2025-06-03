@@ -1946,7 +1946,10 @@ pagedistribution.o: ../../pagedistribution.cpp ../../pagedistribution.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qdatetime.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QDir \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMessageBox \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagedistribution.o ../../pagedistribution.cpp
 
 pageetalo.o: ../../pageetalo.cpp ../../pageetalo.h \

@@ -24,7 +24,6 @@ class Ui_PageModeEtPompe
 public:
     QWidget *centralwidget;
     QPushButton *pb_1pompe;
-    QPushButton *pb_manuel;
     QPushButton *pb_semiauto;
     QPushButton *pb_auto;
     QPushButton *pb_2pompes;
@@ -49,20 +48,16 @@ public:
         font.setPointSize(18);
         font.setBold(true);
         pb_1pompe->setFont(font);
-        pb_manuel = new QPushButton(centralwidget);
-        pb_manuel->setObjectName(QString::fromUtf8("pb_manuel"));
-        pb_manuel->setGeometry(QRect(20, 10, 251, 151));
-        QFont font1;
-        font1.setPointSize(19);
-        font1.setBold(true);
-        pb_manuel->setFont(font1);
         pb_semiauto = new QPushButton(centralwidget);
         pb_semiauto->setObjectName(QString::fromUtf8("pb_semiauto"));
-        pb_semiauto->setGeometry(QRect(280, 10, 251, 151));
+        pb_semiauto->setGeometry(QRect(20, 10, 371, 151));
         pb_semiauto->setFont(font);
         pb_auto = new QPushButton(centralwidget);
         pb_auto->setObjectName(QString::fromUtf8("pb_auto"));
-        pb_auto->setGeometry(QRect(540, 10, 241, 151));
+        pb_auto->setGeometry(QRect(410, 10, 371, 151));
+        QFont font1;
+        font1.setPointSize(19);
+        font1.setBold(true);
         pb_auto->setFont(font1);
         pb_2pompes = new QPushButton(centralwidget);
         pb_2pompes->setObjectName(QString::fromUtf8("pb_2pompes"));
@@ -105,7 +100,6 @@ public:
     {
         PageModeEtPompe->setWindowTitle(QCoreApplication::translate("PageModeEtPompe", "MainWindow", nullptr));
         pb_1pompe->setText(QCoreApplication::translate("PageModeEtPompe", "1 POMPE", nullptr));
-        pb_manuel->setText(QCoreApplication::translate("PageModeEtPompe", "MANUEL", nullptr));
         pb_semiauto->setText(QCoreApplication::translate("PageModeEtPompe", "SEMI-AUTO", nullptr));
         pb_auto->setText(QCoreApplication::translate("PageModeEtPompe", "AUTOMATIQUE", nullptr));
         pb_2pompes->setText(QCoreApplication::translate("PageModeEtPompe", "2 POMPES", nullptr));

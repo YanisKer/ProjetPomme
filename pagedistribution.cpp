@@ -8,6 +8,7 @@
 #include <QTextStream>
 #include <QDateTime>
 #include <QDir>
+#include <QMessageBox>
 
 pagedistribution::pagedistribution(QWidget *parent)
     : QWidget(parent)
@@ -15,7 +16,9 @@ pagedistribution::pagedistribution(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&pagedistribution::traiterDonnees_distri); // Connecte le signal "dataRecu" au slot "traiterDonnees_etalo"
+    ComSerie::getInstance()->envoyerCommande("TSAX");
     nbBouteilles=0;
+    dataRecues="";
     ui->pb_FinDistri->setEnabled(false);
 }
 
@@ -26,68 +29,77 @@ pagedistribution::~pagedistribution()
 
 void pagedistribution::traiterDonnees_distri(const QByteArray &data){
 
-    commandeRecue+=QString(data);
+    dataRecues += QString::fromUtf8(data);
+    QStringList lignes = dataRecues.split('\n');
 
-    if(commandeRecue.endsWith('\n')){
-        if(commandeRecue == "TSRAX\r\n"){
-            ui->fr_pompe_1->setStyleSheet("background-color: red;");
+    // Garder la dernière ligne incomplète dans dataRecues
+    dataRecues = lignes.takeLast();
 
-        }else if (commandeRecue == "TSOAX\r\n"){
-            ui->fr_pompe_1->setStyleSheet("background-color: orange;");
-        }else if (commandeRecue == "TSVAX\r\n"){
-            ui->fr_pompe_1->setStyleSheet("background-color: green;");
-            nbBouteilles++;
-            ui->lcd_nb_bt->display(nbBouteilles);
+    for (const QString &ligne : lignes) {
+
+        QString commande = ligne.trimmed();
+
+        if (!commande.isEmpty()) {
+            qDebug() << "Commande recue distri:" << commande;
+            if(commande == "TSRAX"){
+                ui->fr_pompe_1->setStyleSheet("background-color: red;");
+
+            }else if (commande == "TSOAX"){
+                ui->fr_pompe_1->setStyleSheet("background-color: orange;");
+            }else if (commande == "TSVAX"){
+                ui->fr_pompe_1->setStyleSheet("background-color: green;");
+                nbBouteilles++;
+                ui->lcd_nb_bt->display(nbBouteilles);
+            }
+            if(commande == "TSRBX"){
+                ui->fr_pompe_2->setStyleSheet("background-color: red;");
+
+            }else if (commande == "TSOBX"){
+                ui->fr_pompe_2->setStyleSheet("background-color: orange;");
+            }else if (commande == "TSVBX"){
+                ui->fr_pompe_2->setStyleSheet("background-color: green;");
+                nbBouteilles++;
+                ui->lcd_nb_bt->display(nbBouteilles);
+            }
+            if(commande == "TSRCX"){
+                ui->fr_pompe_3->setStyleSheet("background-color: red;");
+
+            }else if (commande == "TSOCX"){
+                ui->fr_pompe_3->setStyleSheet("background-color: orange;");
+            }else if (commande == "TSVCX"){
+                ui->fr_pompe_3->setStyleSheet("background-color: green;");
+                nbBouteilles++;
+                ui->lcd_nb_bt->display(nbBouteilles);
+            }
+            if(commande == "TSRDX"){
+                ui->fr_pompe_4->setStyleSheet("background-color: red;");
+
+            }else if (commande == "TSODX"){
+                ui->fr_pompe_4->setStyleSheet("background-color: orange;");
+            }else if (commande == "TSVDX"){
+                ui->fr_pompe_4->setStyleSheet("background-color: green;");
+                nbBouteilles++;
+                ui->lcd_nb_bt->display(nbBouteilles);
+            }
+            if(commande == "TSREX"){
+                ui->fr_pompe_5->setStyleSheet("background-color: red;");
+
+            }else if (commande == "TSOEX"){
+                ui->fr_pompe_5->setStyleSheet("background-color: orange;");
+            }else if (commande == "TSVEX"){
+                ui->fr_pompe_5->setStyleSheet("background-color: green;");
+                nbBouteilles++;
+                ui->lcd_nb_bt->display(nbBouteilles);
+                ui->pb_FinDistri->setEnabled(true);
+            }
+
+
         }
-        if(commandeRecue == "TSRBX\r\n"){
-            ui->fr_pompe_2->setStyleSheet("background-color: red;");
-
-        }else if (commandeRecue == "TSOBX\r\n"){
-            ui->fr_pompe_2->setStyleSheet("background-color: orange;");
-        }else if (commandeRecue == "TSVBX\r\n"){
-            ui->fr_pompe_2->setStyleSheet("background-color: green;");
-            nbBouteilles++;
-            ui->lcd_nb_bt->display(nbBouteilles);
-        }
-        if(commandeRecue == "TSRCX\r\n"){
-            ui->fr_pompe_3->setStyleSheet("background-color: red;");
-
-        }else if (commandeRecue == "TSOCX\r\n"){
-            ui->fr_pompe_3->setStyleSheet("background-color: orange;");
-        }else if (commandeRecue == "TSVCX\r\n"){
-            ui->fr_pompe_3->setStyleSheet("background-color: green;");
-            nbBouteilles++;
-            ui->lcd_nb_bt->display(nbBouteilles);
-        }
-        if(commandeRecue == "TSRDX\r\n"){
-            ui->fr_pompe_4->setStyleSheet("background-color: red;");
-
-        }else if (commandeRecue == "TSODX\r\n"){
-            ui->fr_pompe_4->setStyleSheet("background-color: orange;");
-        }else if (commandeRecue == "TSVDX\r\n"){
-            ui->fr_pompe_4->setStyleSheet("background-color: green;");
-            nbBouteilles++;
-            ui->lcd_nb_bt->display(nbBouteilles);
-        }
-        if(commandeRecue == "TSREX\r\n"){
-            ui->fr_pompe_5->setStyleSheet("background-color: red;");
-
-        }else if (commandeRecue == "TSOEX\r\n"){
-            ui->fr_pompe_5->setStyleSheet("background-color: orange;");
-        }else if (commandeRecue == "TSVEX\r\n"){
-            ui->fr_pompe_5->setStyleSheet("background-color: green;");
-            nbBouteilles++;
-            ui->lcd_nb_bt->display(nbBouteilles);
-            ui->pb_FinDistri->setEnabled(true);
-        }
-
-
-
-
-
-        commandeRecue="";//Reinitialisation de la variable.
     }
+
+
 }
+
 void pagedistribution::on_pb_FinDistri_clicked()
 {
     genererCSV();
@@ -129,10 +141,9 @@ void pagedistribution::genererCSV()
     out << "Date,Nombre de bouteilles\n";
 
     // Écrire une ligne avec la date et le nombre de bouteilles
-    out << QDateTime::currentDateTime().toString(Qt::ISODate) << "," << nbBouteilles << "\n";
+    out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << ",Nombre de bouteilles : " << nbBouteilles << "\n";
 
     fichier.close();
-
+    QMessageBox::information(nullptr,"Enregistré", "Fichier de données enregistré dans Téléchargements");
     qDebug() << "Fichier CSV généré dans :" << cheminComplet;
 }
-

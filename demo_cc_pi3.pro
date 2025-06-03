@@ -29,7 +29,6 @@ HEADERS += \
 FORMS += \
     pageaccueil.ui \
     pagedistribution.ui \
-    pageetalonnageRetirer.ui \
     pagemodeetpompe.ui \
     pagenettoyage.ui \
     pagepressee.ui

@@ -19,7 +19,7 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     QButtonGroup *pompeButtonGroup = new QButtonGroup(this);
 
     // Ajout des boutons de mode dans le groupe modeButtonGroup avec des identifiants
-    modeButtonGroup->addButton(ui->pb_manuel, 0);
+
     modeButtonGroup->addButton(ui->pb_semiauto, 1);
     modeButtonGroup->addButton(ui->pb_auto, 2);
 
@@ -31,7 +31,7 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     pompeButtonGroup->addButton(ui->pb_5pompes, 5);
 
     // Active le mode "checkable" (type bouton radio ou à bascule) sur les boutons de mode
-    ui->pb_manuel->setCheckable(true);
+
     ui->pb_semiauto->setCheckable(true);
     ui->pb_auto->setCheckable(true);
 
@@ -42,6 +42,8 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     ui->pb_4pompes->setCheckable(true);
     ui->pb_5pompes->setCheckable(true);
 
+    ui->pb_5pompes->setChecked(true);
+    ui->pb_auto->setChecked(true);
     // Active le mode "checkable" sur les deux autres boutons
 
     ui->pb_continuer->setCheckable(true);
@@ -50,7 +52,6 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     ui->pb_continuer->setEnabled(false);
 
     // Connexions
-    connect(ui->pb_manuel, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_semiauto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_auto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_1pompe, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
@@ -75,7 +76,7 @@ void PageModeEtPompe::onButtonClicked(){
         }
     }
 
-    bool modeSelected = ui->pb_manuel->isChecked() || // Le double pipe permet la sélection sans relachement, ainsi il faut sélectionner un des 3 choix
+    bool modeSelected =  // Le double pipe permet la sélection sans relachement, ainsi il faut sélectionner un des 2 choix
                         ui->pb_semiauto->isChecked() ||
                         ui->pb_auto->isChecked();
     bool pompeSelected = ui->pb_1pompe->isChecked() ||

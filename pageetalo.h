@@ -21,7 +21,7 @@ private:
     QSerialPort *serial;
     QByteArray buffer;
     QLabel *labelInstruction;
-    QString commandeRecue;
+    QString dataRecues;
 };
 
 #endif // PAGEETALO_H

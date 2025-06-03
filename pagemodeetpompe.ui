@@ -33,31 +33,12 @@
      <string>1 POMPE</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pb_manuel">
+   <widget class="QPushButton" name="pb_semiauto">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>251</width>
-      <height>151</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>19</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>MANUEL</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_semiauto">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>10</y>
-      <width>251</width>
+      <width>371</width>
       <height>151</height>
      </rect>
     </property>
@@ -74,9 +55,9 @@
    <widget class="QPushButton" name="pb_auto">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>410</x>
       <y>10</y>
-      <width>241</width>
+      <width>371</width>
       <height>151</height>
      </rect>
     </property>
