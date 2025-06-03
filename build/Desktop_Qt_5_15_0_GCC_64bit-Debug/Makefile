@@ -1804,28 +1804,6 @@ pageaccueil.o: ../../pageaccueil.cpp ../../pageaccueil.h \
 		../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		ui_pageaccueil.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
 		../../ComSerie.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QObject \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/QSerialPort \
@@ -1952,23 +1930,6 @@ pagedistribution.o: ../../pagedistribution.cpp ../../pagedistribution.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QButtonGroup \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qbuttongroup.h \
 		ui_pagedistribution.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QFrame \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLCDNumber \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlcdnumber.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../ComSerie.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QObject \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/QSerialPortInfo \
@@ -2226,26 +2187,11 @@ pagemodeetpompe.o: ../../pagemodeetpompe.cpp ../../pagemodeetpompe.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qbuttongroup.h \
 		../../pagenettoyage.h \
 		ui_pagemodeetpompe.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../pagepressee.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../pagepressee.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMessageBox \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdialog.h \
@@ -2367,19 +2313,7 @@ pagenettoyage.o: ../../pagenettoyage.cpp ../../pagenettoyage.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
-		ui_pagenettoyage.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget
+		ui_pagenettoyage.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagenettoyage.o ../../pagenettoyage.cpp
 
 pagepressee.o: ../../pagepressee.cpp ../../pagepressee.h \
@@ -2491,28 +2425,10 @@ pagepressee.o: ../../pagepressee.cpp ../../pagepressee.h \
 		../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QUrl \
 		ui_pagepressee.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
 		../../pageaccueil.h \
 		../../pagemodeetpompe.h \
 		../../pageetalo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/QSerialPort \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialport.h \
 		../../../Qt/5.15.0/gcc_64/include/QtSerialPort/qserialportglobal.h \
