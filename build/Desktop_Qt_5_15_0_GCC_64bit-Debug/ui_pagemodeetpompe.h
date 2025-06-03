@@ -32,7 +32,6 @@ public:
     QPushButton *pb_4pompes;
     QPushButton *pb_5pompes;
     QPushButton *pb_continuer;
-    QPushButton *pushButton_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -83,15 +82,11 @@ public:
         pb_5pompes->setFont(font);
         pb_continuer = new QPushButton(centralwidget);
         pb_continuer->setObjectName(QString::fromUtf8("pb_continuer"));
-        pb_continuer->setGeometry(QRect(410, 320, 371, 111));
+        pb_continuer->setGeometry(QRect(20, 320, 761, 111));
         QFont font2;
         font2.setPointSize(20);
         font2.setBold(true);
         pb_continuer->setFont(font2);
-        pushButton_3 = new QPushButton(centralwidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(20, 320, 371, 111));
-        pushButton_3->setFont(font2);
         PageModeEtPompe->setCentralWidget(centralwidget);
         menubar = new QMenuBar(PageModeEtPompe);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -118,7 +113,6 @@ public:
         pb_4pompes->setText(QCoreApplication::translate("PageModeEtPompe", "4 POMPES", nullptr));
         pb_5pompes->setText(QCoreApplication::translate("PageModeEtPompe", "5 POMPES", nullptr));
         pb_continuer->setText(QCoreApplication::translate("PageModeEtPompe", "CONTINUER", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("PageModeEtPompe", "RETOUR", nullptr));
     } // retranslateUi
 
 };

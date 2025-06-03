@@ -11,7 +11,6 @@ SOURCES += \
     main.cpp \
     pageaccueil.cpp \
     pagedistribution.cpp \
-    pageerreurselec.cpp \
     pageetalo.cpp \
     pagemodeetpompe.cpp \
     pagenettoyage.cpp \
@@ -21,7 +20,6 @@ SOURCES += \
 HEADERS += \
     pageaccueil.h \
     pagedistribution.h \
-    pageerreurselec.h \
     pageetalo.h \
     pagemodeetpompe.h \
     pagenettoyage.h \
@@ -31,7 +29,6 @@ HEADERS += \
 FORMS += \
     pageaccueil.ui \
     pagedistribution.ui \
-    pageerreurselec.ui \
     pageetalonnageRetirer.ui \
     pagemodeetpompe.ui \
     pagenettoyage.ui \

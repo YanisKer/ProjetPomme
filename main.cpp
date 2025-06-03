@@ -1,11 +1,12 @@
 #include <QApplication>
 #include <QMainWindow>
-#include "pageaccueil.h"
+#include "ComSerie.h"
+#include "pagemodeetpompe.h"
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-
-    PageAccueil window;
+    ComSerie::getInstance();
+    PageModeEtPompe window;
     window.setWindowState(Qt::WindowFullScreen);
     window.show();
 

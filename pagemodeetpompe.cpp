@@ -43,7 +43,7 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     ui->pb_5pompes->setCheckable(true);
 
     // Active le mode "checkable" sur les deux autres boutons
-    ui->pushButton_3->setCheckable(true);
+
     ui->pb_continuer->setCheckable(true);
 
     // Désactive le bouton "Continuer" par défaut (il sera activé plus tard selon une condition)
@@ -58,7 +58,6 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     connect(ui->pb_3pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_4pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
     connect(ui->pb_5pompes, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
-    connect(ui->pushButton_3, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
 
     // Connexion correcte au slot CONTINUER
     connect(ui->pb_continuer, &QPushButton::clicked, this, &PageModeEtPompe::on_pb_continuer_clicked);
@@ -70,9 +69,9 @@ void PageModeEtPompe::onButtonClicked(){
     QPushButton *button = qobject_cast<QPushButton*>(sender());
     if (button){
         if (button->isChecked()){
-            qDebug() << button->text() << "Bouton enfoncé"; // QDebug permet de visualiser le bon fonctionnement du code
+            qDebug() << button->text() << "Bouton enfoncé"; // QDebug permet de visualiser le fonctionnement du code dans le terminal de QT Creator
         } else {
-            qDebug() << button->text() << "Bouton relâché"; // QDebug permet de visualiser le bon fonctionnement du code
+            qDebug() << button->text() << "Bouton relâché"; // QDebug permet de visualiser le fonctionnement du code dans le terminal de QT Creator
         }
     }
 
@@ -94,13 +93,6 @@ PageModeEtPompe::~PageModeEtPompe()
     delete ui;
 }
 
-void PageModeEtPompe::on_pushButton_3_clicked()
-{
-    PagePressee *pagePressee = new PagePressee(this);
-    pagePressee->setWindowState(Qt::WindowFullScreen);
-    pagePressee->show();
-    this->hide();
-}
 
 void PageModeEtPompe::on_pb_continuer_clicked()
 {

@@ -169,9 +169,9 @@
    <widget class="QPushButton" name="pb_continuer">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>20</x>
       <y>320</y>
-      <width>371</width>
+      <width>761</width>
       <height>111</height>
      </rect>
     </property>
@@ -183,25 +183,6 @@
     </property>
     <property name="text">
      <string>CONTINUER</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>320</y>
-      <width>371</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>RETOUR</string>
     </property>
    </widget>
   </widget>

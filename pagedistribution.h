@@ -15,8 +15,16 @@ public:
     explicit pagedistribution(QWidget *parent = nullptr);
     ~pagedistribution();
 
+private slots:
+    void traiterDonnees_distri(const QByteArray &data);
+
+    void on_pb_FinDistri_clicked();
+
 private:
     Ui::pagedistribution *ui;
+    QString commandeRecue;
+    int nbBouteilles;
+    void genererCSV();
 };
 
 #endif // PAGEDISTRIBUTION_H

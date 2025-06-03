@@ -2,6 +2,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include "ComSerie.h"
+#include "pagedistribution.h"
 #include <QDebug>
 PageEtalo::PageEtalo(QWidget *parent) // Constructeur de la classe PageEtalo
     : QWidget(parent),
@@ -13,7 +14,7 @@ PageEtalo::PageEtalo(QWidget *parent) // Constructeur de la classe PageEtalo
     labelInstruction->setStyleSheet("font-size: 27pt; font-weight: bold;"); // Applique un style au label (grosse police et gras)
 
     labelInstruction->setAlignment(Qt::AlignCenter);
-
+    qDebug() << "Constructeur Page Etalo";
     ComSerie::getInstance()->envoyerCommande("TETX");
     connect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageEtalo::traiterDonnees_etalo); // Connecte le signal "dataRecu" au slot "traiterDonnees_etalo"
     commandeRecue=""; // Initialise la chaîne de caractères utilisée pour stocker une commande reçue
@@ -26,26 +27,37 @@ void PageEtalo::traiterDonnees_etalo(const QByteArray &data){
 
     if(commandeRecue.endsWith('\n')){
 
-        qDebug() << "Commande recue étalonnage" << commandeRecue;
+        qDebug() << "Commande recue étalonnage" << commandeRecue; // Reçoit la première commande
         if (commandeRecue == "TCAX\r\n") {
             qDebug() << "Mettre première bouteille";
-            labelInstruction->setText("Mettre bouteille sur distributeur N°1");
+            labelInstruction->setText("Mettre bouteille sur distributeur N°1"); // Renvoie sur l'éxécutable, le texte entre ""
 
         }
-        else if (commandeRecue == "TPAX\r\n") {
+        else if (commandeRecue == "TPAX\r\n") { // Reçoit la deuxième commande
             qDebug() << "Mettre première bouteille";
-            labelInstruction->setText("Patienter... étalonnage en cours..");
+            labelInstruction->setText("Patienter... étalonnage en cours.."); // Renvoie sur l'éxécutable, le texte entre ""
 
         }
-        else if (commandeRecue == "TCBX\r\n") {
+        else if (commandeRecue == "TCBX\r\n") { // Reçoit la troisième commande
             qDebug() << "Mettre deuxième bouteille";
-            labelInstruction->setText("Mettre bouteille sur distributeur N°2");
+            labelInstruction->setText("Mettre bouteille sur distributeur N°2"); // Renvoie sur l'éxécutable, le texte entre ""
         }
 
-        else if (commandeRecue == "TCCX\r\n") {
+        else if (commandeRecue == "TCCX\r\n") { // Reçoit la quatrième commande
             qDebug() << "Mettre troisième bouteille";
-            labelInstruction->setText("Mettre bouteille sur distributeur N°3");
+            labelInstruction->setText("Mettre bouteille sur distributeur N°3"); // Renvoie sur l'éxécutable, le texte entre ""
         }
+        else if (commandeRecue == "TEFX\r\n") { // Reçoit la quatrième commande
+            qDebug() << "Fin étalonnage";
+            labelInstruction->setText("Etalonnage terminé"); // Renvoie sur l'éxécutable, le texte entre ""
+            disconnect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageEtalo::traiterDonnees_etalo);
+            this->hide();
+            pagedistribution *pageDistribution = new pagedistribution();
+            pageDistribution->setWindowState(Qt::WindowFullScreen);
+            pageDistribution->show();
+
+        }
+
         commandeRecue="";//Reinitialisation de la variable.
     }
 

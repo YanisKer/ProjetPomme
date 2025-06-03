@@ -18,7 +18,7 @@
     <rect>
      <x>220</x>
      <y>40</y>
-     <width>351</width>
+     <width>361</width>
      <height>51</height>
     </rect>
    </property>
@@ -29,10 +29,10 @@
     </font>
    </property>
    <property name="text">
-    <string>DISTRIBUTION EN COURS..</string>
+    <string>DISTRIBUTION EN COURS</string>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QFrame" name="fr_pompe_1">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -67,7 +67,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_2">
+  <widget class="QFrame" name="fr_pompe_2">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -102,7 +102,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_4">
+  <widget class="QFrame" name="fr_pompe_4">
    <property name="geometry">
     <rect>
      <x>500</x>
@@ -137,7 +137,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_3">
+  <widget class="QFrame" name="fr_pompe_3">
    <property name="geometry">
     <rect>
      <x>340</x>
@@ -177,7 +177,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_5">
+  <widget class="QFrame" name="fr_pompe_5">
    <property name="geometry">
     <rect>
      <x>650</x>
@@ -212,7 +212,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pb_FinDistri">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -231,7 +231,7 @@
     <string>FIN DISTRIBUTION</string>
    </property>
   </widget>
-  <widget class="QLCDNumber" name="lcdNumber">
+  <widget class="QLCDNumber" name="lcd_nb_bt">
    <property name="geometry">
     <rect>
      <x>500</x>
