@@ -79,11 +79,9 @@ void pagedistribution::traiterDonnees_distri(const QByteArray &data){
 
         }
     }
-
-
 }
 
-void pagedistribution::on_pb_FinDistri_clicked()
+void pagedistribution::on_pb_FinDistri_2_clicked()
 {
     genererCSV();
     // Crée la nouvelle page
@@ -99,34 +97,50 @@ void pagedistribution::on_pb_FinDistri_clicked()
 
 void pagedistribution::genererCSV()
 {
-    // Récupérer le chemin du dossier Téléchargements
+    // D'abord, essayer le chemin standard
     QString path = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+
+    // Si vide, on tente manuellement
     if (path.isEmpty()) {
-        qDebug() << "Impossible de récupérer le dossier Téléchargements.";
-        return;
+        QString home = QDir::homePath();
+        path = home + "/Téléchargements"; // ou "/Downloads" selon le système
     }
 
-    // Créer un nom de fichier unique avec date/heure
-    QString nomFichier = QString("distribution_%1.csv")
-                             .arg(QDateTime::currentDateTime().toString("yyyyMMdd_hhmmss"));
+    // S'assurer que le dossier existe
+    QDir dir(path);
+    if (!dir.exists()) {
+        qDebug() << "Le dossier Téléchargements n'existe pas, tentative de création.";
+        if (!dir.mkpath(".")) {
+            qDebug() << "Échec de création du dossier Téléchargements.";
+            return;
+        }
+    }
 
-    QString cheminComplet = QDir(path).filePath(nomFichier);
+    QString fichierNom = "distribution_log.csv";
+    QString cheminComplet = dir.filePath(fichierNom);
 
     QFile fichier(cheminComplet);
-    if (!fichier.open(QIODevice::WriteOnly | QIODevice::Text)) {
+    bool fichierExistant = fichier.exists();
+
+    if (!fichier.open(QIODevice::Append | QIODevice::Text)) {
         qDebug() << "Impossible d'ouvrir le fichier pour écriture :" << cheminComplet;
         return;
     }
 
     QTextStream out(&fichier);
 
-    // Écrire les entêtes (ajuste selon tes données)
-    out << "Date,Nombre de bouteilles\n";
+    // Si fichier nouveau, écrire les entêtes
+    if (!fichierExistant) {
+        out << "Date,Heure,Nombre de bouteilles\n";
+    }
 
-    // Écrire une ligne avec la date et le nombre de bouteilles
-    out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << ",Nombre de bouteilles : " << nbBouteilles << "\n";
+    QString date = QDate::currentDate().toString("dd/MM/yyyy");
+    QString heure = QTime::currentTime().toString("HH:mm:ss");
+
+    out << date << "," << heure << "," << nbBouteilles << "\n";
 
     fichier.close();
-    QMessageBox::information(nullptr,"Enregistré", "Fichier de données enregistré dans Téléchargements");
-    qDebug() << "Fichier CSV généré dans :" << cheminComplet;
+
+    QMessageBox::information(this, "Fichier généré", "Les données ont été enregistrées dans :\n" + cheminComplet);
+    qDebug() << "Fichier CSV mis à jour dans :" << cheminComplet;
 }

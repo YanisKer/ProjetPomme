@@ -17,7 +17,7 @@ public:
 
 private slots:
     void traiterDonnees_distri(const QByteArray &data);
-    void on_pb_FinDistri_clicked();
+    void on_pb_FinDistri_2_clicked();
 
 
 

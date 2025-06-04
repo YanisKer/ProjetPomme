@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_pagedistribution_t {
     QByteArrayData data[5];
-    char stringdata0[69];
+    char stringdata0[71];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,11 +36,11 @@ QT_MOC_LITERAL(0, 0, 16), // "pagedistribution"
 QT_MOC_LITERAL(1, 17, 21), // "traiterDonnees_distri"
 QT_MOC_LITERAL(2, 39, 0), // ""
 QT_MOC_LITERAL(3, 40, 4), // "data"
-QT_MOC_LITERAL(4, 45, 23) // "on_pb_FinDistri_clicked"
+QT_MOC_LITERAL(4, 45, 25) // "on_pb_FinDistri_2_clicked"
 
     },
     "pagedistribution\0traiterDonnees_distri\0"
-    "\0data\0on_pb_FinDistri_clicked"
+    "\0data\0on_pb_FinDistri_2_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -75,7 +75,7 @@ void pagedistribution::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->traiterDonnees_distri((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
-        case 1: _t->on_pb_FinDistri_clicked(); break;
+        case 1: _t->on_pb_FinDistri_2_clicked(); break;
         default: ;
         }
     }

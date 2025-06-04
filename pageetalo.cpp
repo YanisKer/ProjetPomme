@@ -45,7 +45,7 @@ void PageEtalo::traiterDonnees_etalo(const QByteArray &data){
             }
             else if (commande == "TPAX") { // Reçoit la deuxième commande
                 qDebug() << "Patienter";
-                labelInstruction->setText("Patienter... étalonnage en cours.."); // Renvoie sur l'éxécutable, le texte entre ""
+                labelInstruction->setText("Patienter... étalonnage en cours..."); // Renvoie sur l'éxécutable, le texte entre ""
 
             }
             else if (commande == "TCBX") { // Reçoit la troisième commande
