@@ -41,9 +41,9 @@ public:
         pagedistribution->resize(800, 480);
         label = new QLabel(pagedistribution);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(220, 40, 361, 51));
+        label->setGeometry(QRect(263, 30, 341, 51));
         QFont font;
-        font.setPointSize(20);
+        font.setPointSize(16);
         font.setBold(true);
         label->setFont(font);
         fr_pompe_1 = new QFrame(pagedistribution);
@@ -84,19 +84,25 @@ public:
         lcd_nb_bt->setGeometry(QRect(500, 250, 281, 71));
         label_7 = new QLabel(pagedistribution);
         label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(20, 210, 511, 161));
+        label_7->setGeometry(QRect(20, 210, 471, 161));
         QFont font3;
-        font3.setPointSize(18);
+        font3.setPointSize(21);
         font3.setBold(true);
         label_7->setFont(font3);
         pb_FinDistri_2 = new QPushButton(pagedistribution);
         pb_FinDistri_2->setObjectName(QString::fromUtf8("pb_FinDistri_2"));
         pb_FinDistri_2->setGeometry(QRect(410, 340, 371, 121));
-        pb_FinDistri_2->setFont(font);
+        QFont font4;
+        font4.setPointSize(20);
+        font4.setBold(true);
+        pb_FinDistri_2->setFont(font4);
         pushButton = new QPushButton(pagedistribution);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(20, 340, 361, 121));
-        pushButton->setFont(font);
+        QFont font5;
+        font5.setPointSize(19);
+        font5.setBold(true);
+        pushButton->setFont(font5);
 
         retranslateUi(pagedistribution);
 
@@ -110,7 +116,7 @@ public:
         label_2->setText(QCoreApplication::translate("pagedistribution", "1", nullptr));
         label_3->setText(QCoreApplication::translate("pagedistribution", "2", nullptr));
         label_5->setText(QCoreApplication::translate("pagedistribution", "3", nullptr));
-        label_7->setText(QCoreApplication::translate("pagedistribution", "NOMBRE DE BOUTEILLES DISTRIBU\303\211ES :", nullptr));
+        label_7->setText(QCoreApplication::translate("pagedistribution", "NOMBRE DE BOUTEILLES :", nullptr));
         pb_FinDistri_2->setText(QCoreApplication::translate("pagedistribution", "FIN DISTRIBUTION", nullptr));
         pushButton->setText(QCoreApplication::translate("pagedistribution", "RELANCER \303\211TALONNAGE", nullptr));
     } // retranslateUi

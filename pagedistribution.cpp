@@ -46,43 +46,46 @@ void pagedistribution::traiterDonnees_distri(const QByteArray &data){
 
             }else if (commande == "TSOAX"){
                 ui->fr_pompe_1->setStyleSheet("background-color: orange;");
-            }else if (commande == "TSVAX"){
-                ui->fr_pompe_1->setStyleSheet("background-color: green;");
                 nbBouteilles++;
                 ui->lcd_nb_bt->display(nbBouteilles);
+            }else if (commande == "TSVAX"){
+                ui->fr_pompe_1->setStyleSheet("background-color: green;");
+
+            }else if (commande == "TSBAX"){
+                ui->fr_pompe_1->setStyleSheet("background-color: white;");
             }
             if(commande == "TSRBX"){
                 ui->fr_pompe_2->setStyleSheet("background-color: red;");
 
             }else if (commande == "TSOBX"){
                 ui->fr_pompe_2->setStyleSheet("background-color: orange;");
+                nbBouteilles++;
+                ui->lcd_nb_bt->display(nbBouteilles);
             }else if (commande == "TSVBX"){
                 ui->fr_pompe_2->setStyleSheet("background-color: green;");
-                nbBouteilles++;
-                ui->lcd_nb_bt->display(nbBouteilles);
-            }
+
+            }else if (commande == "TSBBX"){
+                    ui->fr_pompe_2->setStyleSheet("background-color: white;");
+                }
             if(commande == "TSRCX"){
                 ui->fr_pompe_3->setStyleSheet("background-color: red;");
-
             }else if (commande == "TSOCX"){
                 ui->fr_pompe_3->setStyleSheet("background-color: orange;");
-            }else if (commande == "TSVCX"){
-                ui->fr_pompe_3->setStyleSheet("background-color: green;");
                 nbBouteilles++;
                 ui->lcd_nb_bt->display(nbBouteilles);
+            }else if (commande == "TSVCX"){
+                ui->fr_pompe_3->setStyleSheet("background-color: green;");
+            }else if (commande == "TSBCX"){
+                ui->fr_pompe_3->setStyleSheet("background-color: white;");
             }
-            if(commande == "TSRDX"){
-
-
-
-            }
-
         }
     }
 }
 
 void pagedistribution::on_pb_FinDistri_2_clicked()
 {
+    ComSerie::getInstance()->envoyerCommande("TMFX"); // Envoie la commande "TMFX" à l'Arduino pour annoncer la fin de la distribution du jus, avant de passer[...]
+    // [...] sur une autre page
     genererCSV();
     // Crée la nouvelle page
     PageModeEtPompe *pageModeEtPompe = new PageModeEtPompe();
