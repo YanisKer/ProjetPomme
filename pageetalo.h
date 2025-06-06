@@ -11,13 +11,13 @@ class PageEtalo : public QWidget
     Q_OBJECT
 
 public:
-    explicit PageEtalo(QWidget *parent = nullptr);
+    explicit PageEtalo(int selectedMode=0,QWidget *parent = nullptr );
 
 private slots:
     void traiterDonnees_etalo(const QByteArray &data);
 private:
 
-
+    int selectedModeEtalo;
     QSerialPort *serial;
     QByteArray buffer;
     QLabel *labelInstruction;

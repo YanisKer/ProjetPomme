@@ -5,11 +5,12 @@
 #include "pagedistribution.h"
 #include <QDebug>
 
-PageEtalo::PageEtalo(QWidget *parent) // Constructeur de la classe PageEtalo
+PageEtalo::PageEtalo(int selectedMode, QWidget *parent) // Constructeur de la classe PageEtalo
     : QWidget(parent),
     serial(new QSerialPort(this)),
     labelInstruction(new QLabel("En attente de l'instruction...", this))
 {
+    selectedModeEtalo=selectedMode;
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(labelInstruction);
     labelInstruction->setStyleSheet("font-size: 27pt; font-weight: bold;"); // Applique un style au label (police de taille 27 et gras)
@@ -23,9 +24,13 @@ PageEtalo::PageEtalo(QWidget *parent) // Constructeur de la classe PageEtalo
 void PageEtalo::traiterDonnees_etalo(const QByteArray &data){
 
     dataRecues += QString::fromUtf8(data);
-    QStringList lignes = dataRecues.split('\n');
-    // Garder la dernière ligne incomplète dans dataRecues
-    dataRecues = lignes.takeLast(); //Cette ligne retire et conserve la ligne dans dataRecues, la chaine.
+    QStringList lignes = dataRecues.split('\n', Qt::SkipEmptyParts);
+    // Si la fin du message ne se termine pas par '\n', on garde la dernière ligne
+    if (!dataRecues.endsWith('\n')) {
+        dataRecues = lignes.takeLast(); // ligne incomplète à conserver
+    } else {
+        dataRecues.clear(); // toutes les lignes sont complètes
+    }
     for (const QString &ligne : lignes) {
         QString commande = ligne.trimmed();
         if (!commande.isEmpty()) {
@@ -50,37 +55,19 @@ void PageEtalo::traiterDonnees_etalo(const QByteArray &data){
             else if (commande == "TEFX") { // Reçoit la cinquième commande
                 qDebug() << "Fin étalonnage";
                 labelInstruction->setText("Etalonnage terminé"); // Renvoie sur l'éxécutable, le texte entre ""
-
+                if(selectedModeEtalo==1)
+                {
+                    ComSerie::getInstance()->envoyerCommande("TSAX");
+                }else if (selectedModeEtalo==2)
+                {
+                    ComSerie::getInstance()->envoyerCommande("TAUX");
+                }
                 disconnect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&PageEtalo::traiterDonnees_etalo);
                 this->hide();
                 pagedistribution *pageDistribution = new pagedistribution(); // Pointeur pageDistribution, on crée dynamiquement un nouvel objet pageDistribution
                 pageDistribution->setWindowState(Qt::WindowFullScreen);
                 pageDistribution->show();
-                dataRecues="";//Reinitialisation de la variable.
             }
         }
     }
 }
-/*
-QString PageEtalo::decodeMessage(const QString &msg)
-{
-    if (msg == "TETX") {
-        return "Mettre la première bouteille pour étalonnage";
-
-    }
-    else if (msg == "TSAX") return "Mode Semi Auto";
-    else if (msg == "TMAX") return "Mode Manuel";
-    else if (msg == "TAUX") return "Mode Auto";
-    else if (msg == "TDFX") return "Distribution finie";
-    else if (msg == "TPFX") return "Pressée finie";
-    else if (msg == "TNLX") return "Nombre de litres";
-    else if (msg == "TNBX") return "Nombre de bouteilles";
-    else if (msg == "TEFX") return "Étalonnage fini";
-    else if (msg == "TSPX") return "Statut pompe";
-    else if (msg == "TNTX") return "Nettoyage terminé";
-    else if (msg == "TNPX") return "Nettoyage pompe";
-    else if (msg == "TNFX") return "Nettoyage finie";
-
-    return "Instruction inconnue : " + msg;
-}
-*/

@@ -16,7 +16,7 @@ pagedistribution::pagedistribution(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ComSerie::getInstance(),&ComSerie::dataRecu,this,&pagedistribution::traiterDonnees_distri); // Connecte le signal "dataRecu" au slot "traiterDonnees_etalo"
-    ComSerie::getInstance()->envoyerCommande("TSAX");
+
     nbBouteilles=0;
     dataRecues="";
 
@@ -29,11 +29,15 @@ pagedistribution::~pagedistribution()
 
 void pagedistribution::traiterDonnees_distri(const QByteArray &data){
 
-    dataRecues += QString::fromUtf8(data);
-    QStringList lignes = dataRecues.split('\n');
 
-    // Garder la dernière ligne incomplète dans dataRecues
-    dataRecues = lignes.takeLast();
+    dataRecues += QString::fromUtf8(data);
+    QStringList lignes = dataRecues.split('\n', Qt::SkipEmptyParts);
+    // Si la fin du message ne se termine pas par '\n', on garde la dernière ligne
+    if (!dataRecues.endsWith('\n')) {
+        dataRecues = lignes.takeLast(); // ligne incomplète à conserver
+    } else {
+        dataRecues.clear(); // toutes les lignes sont complètes
+    }
 
     for (const QString &ligne : lignes) {
 

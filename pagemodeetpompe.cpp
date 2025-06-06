@@ -1,8 +1,7 @@
 #include "pagemodeetpompe.h"
 #include "pageetalo.h"
-#include "pagenettoyage.h"
 #include "ui_pagemodeetpompe.h"
-#include "pagepressee.h"
+
 #include <QPushButton>
 #include <QMessageBox>
 #include <QVBoxLayout>
@@ -31,8 +30,7 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
 
     ui->pb_continuer->setCheckable(true);
 
-    // Désactive le bouton "Continuer" par défaut (il sera activé plus tard selon une condition)
-    ui->pb_continuer->setEnabled(false);
+    ui->pb_continuer->setEnabled(true);
 
     // Connexions
     connect(ui->pb_semiauto, &QPushButton::clicked, this, &PageModeEtPompe::onButtonClicked);
@@ -42,26 +40,25 @@ PageModeEtPompe::PageModeEtPompe(QWidget *parent) :
     connect(ui->pb_continuer, &QPushButton::clicked, this, &PageModeEtPompe::on_pb_continuer_clicked);
 
     this->setWindowState(Qt::WindowFullScreen);
+    selectedMode=2;
 }
 
 void PageModeEtPompe::onButtonClicked(){
     QPushButton *button = qobject_cast<QPushButton*>(sender());
     if (button){
-        if (button->isChecked()){
-            qDebug() << button->text() << "Bouton enfoncé"; // QDebug permet de visualiser le fonctionnement du code dans le terminal de QT Creator
-        } else {
-            qDebug() << button->text() << "Bouton relâché"; // QDebug permet de visualiser le fonctionnement du code dans le terminal de QT Creator
+        if (button->text()=="SEMI-AUTO")
+        {
+            qDebug() << "Semi auto selectionné";
+
+            selectedMode=1;
         }
-    }
+        else if (button->text()=="AUTOMATIQUE")
+        {
+            qDebug() << "Auto selectionné";
 
-    bool modeSelected =  // Le double pipe permet la sélection sans relachement, ainsi il faut sélectionner un des 2 choix
-                        ui->pb_semiauto->isChecked() ||
-                        ui->pb_auto->isChecked();
-
-
-
-    ui->pb_continuer->setEnabled(modeSelected);
-    qDebug() << "Continuer activé:" << ui->pb_continuer->isEnabled();
+            selectedMode=2;
+        }
+    } 
 }
 
 PageModeEtPompe::~PageModeEtPompe()
@@ -71,8 +68,9 @@ PageModeEtPompe::~PageModeEtPompe()
 
 void PageModeEtPompe::on_pb_continuer_clicked()
 {
+
     if (!pageEtalo) {
-        pageEtalo = new PageEtalo(); // NE PAS mettre "this" en parent ici
+        pageEtalo = new PageEtalo(selectedMode); // NE PAS mettre "this" en parent ici
     }
     pageEtalo->setWindowState(Qt::WindowFullScreen);
     pageEtalo->show();

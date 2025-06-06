@@ -22,10 +22,11 @@ private slots:
     void onButtonClicked();
     void on_pb_continuer_clicked();
 
+
 private:
     Ui::PageModeEtPompe *ui;
     QButtonGroup *modeButtonGroup;
-    int selectedMode;
+    int selectedMode; //0 Rien de selectionne ; 1 Semi-Auto ; 2 Auto
     PageEtalo *pageEtalo = nullptr; // Ajout ici
 
 };

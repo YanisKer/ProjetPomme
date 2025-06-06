@@ -22,7 +22,7 @@ private slots:
 
 private:
     explicit ComSerie(QObject *parent = nullptr);
-    static ComSerie* instance;
+    static ComSerie* instance; // Pointeur sur un objet de type comsérie
 
     QSerialPort *portSerie;
 };
