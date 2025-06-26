@@ -1760,6 +1760,28 @@ pageaccueil.o: pageaccueil.cpp pageaccueil.h \
 		pagepressee.h \
 		../rpi/qt5.15/include/QtCore/QUrl \
 		ui_pageaccueil.h \
+		../rpi/qt5.15/include/QtCore/QVariant \
+		../rpi/qt5.15/include/QtWidgets/QApplication \
+		../rpi/qt5.15/include/QtWidgets/qapplication.h \
+		../rpi/qt5.15/include/QtCore/qcoreapplication.h \
+		../rpi/qt5.15/include/QtCore/qeventloop.h \
+		../rpi/qt5.15/include/QtWidgets/qdesktopwidget.h \
+		../rpi/qt5.15/include/QtGui/qguiapplication.h \
+		../rpi/qt5.15/include/QtGui/qinputmethod.h \
+		../rpi/qt5.15/include/QtWidgets/QLabel \
+		../rpi/qt5.15/include/QtWidgets/qlabel.h \
+		../rpi/qt5.15/include/QtWidgets/qframe.h \
+		../rpi/qt5.15/include/QtWidgets/QMenuBar \
+		../rpi/qt5.15/include/QtWidgets/qmenubar.h \
+		../rpi/qt5.15/include/QtWidgets/qmenu.h \
+		../rpi/qt5.15/include/QtWidgets/qaction.h \
+		../rpi/qt5.15/include/QtWidgets/qactiongroup.h \
+		../rpi/qt5.15/include/QtWidgets/QPushButton \
+		../rpi/qt5.15/include/QtWidgets/qpushbutton.h \
+		../rpi/qt5.15/include/QtWidgets/qabstractbutton.h \
+		../rpi/qt5.15/include/QtWidgets/QStatusBar \
+		../rpi/qt5.15/include/QtWidgets/qstatusbar.h \
+		../rpi/qt5.15/include/QtWidgets/QWidget \
 		ComSerie.h \
 		../rpi/qt5.15/include/QtCore/QObject \
 		../rpi/qt5.15/include/QtSerialPort/QSerialPort \
@@ -1886,6 +1908,23 @@ pagedistribution.o: pagedistribution.cpp pagedistribution.h \
 		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
 		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
 		ui_pagedistribution.h \
+		../rpi/qt5.15/include/QtCore/QVariant \
+		../rpi/qt5.15/include/QtWidgets/QApplication \
+		../rpi/qt5.15/include/QtWidgets/qapplication.h \
+		../rpi/qt5.15/include/QtCore/qcoreapplication.h \
+		../rpi/qt5.15/include/QtCore/qeventloop.h \
+		../rpi/qt5.15/include/QtWidgets/qdesktopwidget.h \
+		../rpi/qt5.15/include/QtGui/qguiapplication.h \
+		../rpi/qt5.15/include/QtGui/qinputmethod.h \
+		../rpi/qt5.15/include/QtWidgets/QFrame \
+		../rpi/qt5.15/include/QtWidgets/qframe.h \
+		../rpi/qt5.15/include/QtWidgets/QLCDNumber \
+		../rpi/qt5.15/include/QtWidgets/qlcdnumber.h \
+		../rpi/qt5.15/include/QtWidgets/QLabel \
+		../rpi/qt5.15/include/QtWidgets/qlabel.h \
+		../rpi/qt5.15/include/QtWidgets/QPushButton \
+		../rpi/qt5.15/include/QtWidgets/qpushbutton.h \
+		../rpi/qt5.15/include/QtWidgets/qabstractbutton.h \
 		ComSerie.h \
 		../rpi/qt5.15/include/QtCore/QObject \
 		../rpi/qt5.15/include/QtSerialPort/QSerialPortInfo \
@@ -2141,13 +2180,25 @@ pagemodeetpompe.o: pagemodeetpompe.cpp pagemodeetpompe.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
 		../rpi/qt5.15/include/QtWidgets/QButtonGroup \
 		../rpi/qt5.15/include/QtWidgets/qbuttongroup.h \
-		pagenettoyage.h \
 		ui_pagemodeetpompe.h \
-		pagepressee.h \
-		../rpi/qt5.15/include/QtCore/QUrl \
+		../rpi/qt5.15/include/QtCore/QVariant \
+		../rpi/qt5.15/include/QtWidgets/QApplication \
+		../rpi/qt5.15/include/QtWidgets/qapplication.h \
+		../rpi/qt5.15/include/QtCore/qcoreapplication.h \
+		../rpi/qt5.15/include/QtCore/qeventloop.h \
+		../rpi/qt5.15/include/QtWidgets/qdesktopwidget.h \
+		../rpi/qt5.15/include/QtGui/qguiapplication.h \
+		../rpi/qt5.15/include/QtGui/qinputmethod.h \
+		../rpi/qt5.15/include/QtWidgets/QMenuBar \
+		../rpi/qt5.15/include/QtWidgets/qmenubar.h \
+		../rpi/qt5.15/include/QtWidgets/qmenu.h \
+		../rpi/qt5.15/include/QtWidgets/qaction.h \
+		../rpi/qt5.15/include/QtWidgets/qactiongroup.h \
 		../rpi/qt5.15/include/QtWidgets/QPushButton \
 		../rpi/qt5.15/include/QtWidgets/qpushbutton.h \
 		../rpi/qt5.15/include/QtWidgets/qabstractbutton.h \
+		../rpi/qt5.15/include/QtWidgets/QStatusBar \
+		../rpi/qt5.15/include/QtWidgets/qstatusbar.h \
 		../rpi/qt5.15/include/QtWidgets/QMessageBox \
 		../rpi/qt5.15/include/QtWidgets/qmessagebox.h \
 		../rpi/qt5.15/include/QtWidgets/qdialog.h \
@@ -2269,7 +2320,19 @@ pagenettoyage.o: pagenettoyage.cpp pagenettoyage.h \
 		../rpi/qt5.15/include/QtGui/qtouchdevice.h \
 		../rpi/qt5.15/include/QtWidgets/qtabwidget.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
-		ui_pagenettoyage.h
+		ui_pagenettoyage.h \
+		../rpi/qt5.15/include/QtCore/QVariant \
+		../rpi/qt5.15/include/QtWidgets/QApplication \
+		../rpi/qt5.15/include/QtWidgets/qapplication.h \
+		../rpi/qt5.15/include/QtCore/qcoreapplication.h \
+		../rpi/qt5.15/include/QtCore/qeventloop.h \
+		../rpi/qt5.15/include/QtWidgets/qdesktopwidget.h \
+		../rpi/qt5.15/include/QtGui/qguiapplication.h \
+		../rpi/qt5.15/include/QtGui/qinputmethod.h \
+		../rpi/qt5.15/include/QtWidgets/QLabel \
+		../rpi/qt5.15/include/QtWidgets/qlabel.h \
+		../rpi/qt5.15/include/QtWidgets/qframe.h \
+		../rpi/qt5.15/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pagenettoyage.o pagenettoyage.cpp
 
 pagepressee.o: pagepressee.cpp pagepressee.h \
@@ -2381,10 +2444,28 @@ pagepressee.o: pagepressee.cpp pagepressee.h \
 		../rpi/qt5.15/include/QtGui/qicon.h \
 		../rpi/qt5.15/include/QtCore/QUrl \
 		ui_pagepressee.h \
+		../rpi/qt5.15/include/QtCore/QVariant \
+		../rpi/qt5.15/include/QtWidgets/QApplication \
+		../rpi/qt5.15/include/QtWidgets/qapplication.h \
+		../rpi/qt5.15/include/QtCore/qcoreapplication.h \
+		../rpi/qt5.15/include/QtCore/qeventloop.h \
+		../rpi/qt5.15/include/QtWidgets/qdesktopwidget.h \
+		../rpi/qt5.15/include/QtGui/qguiapplication.h \
+		../rpi/qt5.15/include/QtGui/qinputmethod.h \
+		../rpi/qt5.15/include/QtWidgets/QMenuBar \
+		../rpi/qt5.15/include/QtWidgets/qmenubar.h \
+		../rpi/qt5.15/include/QtWidgets/qmenu.h \
+		../rpi/qt5.15/include/QtWidgets/qaction.h \
+		../rpi/qt5.15/include/QtWidgets/qactiongroup.h \
+		../rpi/qt5.15/include/QtWidgets/QPushButton \
+		../rpi/qt5.15/include/QtWidgets/qpushbutton.h \
+		../rpi/qt5.15/include/QtWidgets/qabstractbutton.h \
+		../rpi/qt5.15/include/QtWidgets/QStatusBar \
+		../rpi/qt5.15/include/QtWidgets/qstatusbar.h \
+		../rpi/qt5.15/include/QtWidgets/QWidget \
 		pageaccueil.h \
 		pagemodeetpompe.h \
 		pageetalo.h \
-		../rpi/qt5.15/include/QtWidgets/QWidget \
 		../rpi/qt5.15/include/QtSerialPort/QSerialPort \
 		../rpi/qt5.15/include/QtSerialPort/qserialport.h \
 		../rpi/qt5.15/include/QtSerialPort/qserialportglobal.h \
